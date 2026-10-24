@@ -47,8 +47,6 @@ To try it on the offline test forms, see [test-forms/README.md](test-forms/READM
 
 ## Architecture
 
-_To be added (see CLAUDE.md §4 for now)._
-
 ## Metrics
 
 See [docs/METRICS.md](docs/METRICS.md).
