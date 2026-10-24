@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Form built from web components whose real <input>s live inside an open
+       shadow root, like SAP UI5 (<ui5-input>) used by SuccessFactors. Labels
+       are on the host element (accessible-name) or in text before it. -->
+  <title>Shadow DOM form</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 24px auto; }
+    .row { margin-bottom: 14px; }
+    .label { display: block; font-weight: bold; margin-bottom: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Data Scientist (Contract)</h1>
+  <form action="https://example.com/apply" method="post">
+    <div class="row">
+      <my-input accessible-name="First Name"></my-input>
+    </div>
+    <div class="row">
+      <span class="label">Email Address</span>
+      <my-input></my-input>
+    </div>
+    <div class="row">
+      <span class="label">Current City</span>
+      <my-input></my-input>
+    </div>
+    <button type="submit" data-tripwire>Submit</button>
+  </form>
+  <script src="tripwire.js"></script>
+  <script>
+    // A minimal web component: the visible box is an <input> inside its shadow root.
+    customElements.define("my-input", class extends HTMLElement {
+      constructor() {
+        super();
+        this.attachShadow({ mode: "open" }).innerHTML =
+          '<input type="text" style="width: 300px; padding: 6px; font-size: 14px;">';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Questions above boxes labelled "Your answer"</title></head>
+<body>
+  <!-- Like the Zema Global form: the question is plain text above the box, and every box's own
+       <label> is the filler "Your answer". GoForIt must use the question, not "Your answer". -->
+  <form id="f" onsubmit="window.__goforitSubmitted = true; return false;">
+    <div class="q"><div class="title">What is your current place of residence? (choose one of the options) *</div>
+      <div class="box"><label for="a1">Your answer</label><input id="a1" type="text" maxlength="500"></div><div>0/500</div></div>
+    <div class="q"><div class="title">What is your Notice Period? *</div>
+      <div class="box"><label for="a2">Your answer</label><input id="a2" type="text" maxlength="500"></div><div>0/500</div></div>
+    <div class="q"><div class="title">What is your expected compensation? *</div>
+      <div class="box"><label for="a3">Your answer</label><input id="a3" type="text" maxlength="500"></div><div>0/500</div></div>
+    <div class="q"><div class="title">Your LinkedIn profile URL *</div>
+      <div class="box"><label for="a4">Your answer</label><input id="a4" type="text" maxlength="500"></div><div>0/500</div></div>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>

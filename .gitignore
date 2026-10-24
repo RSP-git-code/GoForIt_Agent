@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Secrets / env
+.env
+.env.*
+
+# Model weights and exports (never commit)
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.gguf
+*.onnx
+ml/**/checkpoints/
+ml/**/models/
+ml/**/outputs/
+
+# Datasets that may contain personal data
+ml/**/data/raw/
+ml/**/data/private/
+*.private.jsonl
+
+# Personal profile / resume files
+*profile*.json
+!extension/**/profile-schema.js
+resumes/
+*.pdf
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Raw saved pages from real sites (may contain personal data)
+test-forms/raw/
+
+# OAuth secrets and tokens (Gmail, Microsoft) - never commit
+credentials*.json
+token*.json
+*.token
+.msal_cache*

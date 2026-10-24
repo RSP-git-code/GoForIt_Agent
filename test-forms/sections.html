@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Workday-style labels that only make sense with their section heading:
+       a bare "URL" under "Websites", and "From"/"To" under "Education". -->
+  <title>Sections test</title>
+  <style>body { font-family: Arial, sans-serif; max-width: 600px; margin: 24px auto; } label { display: block; margin-top: 10px; }</style>
+</head>
+<body>
+  <form action="https://example.myworkdayjobs.com/apply" method="post">
+    <h2>Education</h2>
+    <h3>Education 1</h3>
+    <label for="from">From</label><input id="from" type="text">
+    <label for="to">To (Actual or Expected)</label><input id="to" type="text">
+    <!-- Calendar-style boxes (jQuery UI datepicker): example date as placeholder, one read-only -->
+    <label for="course-start">Start of Course</label><input id="course-start" type="text" placeholder="16 June 2014">
+    <label for="course-end">End of Course</label><input id="course-end" type="text" placeholder="16 July 2018" readonly>
+    <!-- Month pickers like IBM careers: only "YYYY-MM" is accepted -->
+    <h3>Education 2</h3>
+    <label for="m-from">Start Date</label><input id="m-from" type="month">
+    <label for="m-to">End Date</label><input id="m-to" type="month">
+
+    <h2>Websites</h2>
+    <p>Add any relevant websites.</p>
+    <h3>Websites 1</h3>
+    <label for="url1">URL <span>*</span></label><input id="url1" type="url" required>
+
+    <button type="submit" data-tripwire>Submit</button>
+  </form>
+  <script src="tripwire.js"></script>
+</body>
+</html>

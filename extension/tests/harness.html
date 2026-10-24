@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GoForIt test harness</title>
+  <!-- Dev-only. Serve the repo root over HTTP, then open
+       /extension/tests/harness.html?form=google-form.html
+       It loads the test form in a frame, runs the content scripts against the
+       made-up sample profile, and prints the result as JSON in #out.
+       run-harness.js uses this with headless Chrome. -->
+  <style>iframe { width: 1200px; height: 4000px; border: 0; }</style>
+</head>
+<body>
+  <pre id="out">pending</pre>
+  <iframe id="frame"></iframe>
+  <script>
+    const CONTENT_FILES = [
+      "content/extractor.js",
+      "content/applier.js",
+      "content/adapters/generic.js",
+      "content/adapters/google-forms.js",
+      "content/adapters/greenhouse.js",
+      "content/adapters/lever.js",
+      "content/content.js",
+    ];
+
+    // What the form looks like after filling, read straight from the DOM.
+    function snapshot(doc) {
+      const values = {};
+      doc.querySelectorAll("input, select, textarea").forEach((el, i) => {
+        const key = el.name || el.id || `${el.tagName.toLowerCase()}#${i}`;
+        if (el.type === "radio" || el.type === "checkbox") {
+          if (el.checked) values[key] = (values[key] ? values[key] + ", " : "") + el.value;
+        } else if (el.type === "file") {
+          if (el.files && el.files.length) values[key] = `file:${el.files[0].name}`;
+        } else if (el.type !== "submit" && el.value) {
+          values[key] = el.tagName === "SELECT" ? el.options[el.selectedIndex].text : el.value;
+        }
+      });
+      doc.querySelectorAll('[role="listitem"]').forEach((item) => {
+        const heading = item.querySelector('[role="heading"]');
+        if (!heading) return;
+        const q = heading.textContent.replace(/\s+/g, " ").trim();
+        const picked = [...item.querySelectorAll('[role="radio"][aria-checked="true"], [role="checkbox"][aria-checked="true"], [role="option"][aria-selected="true"]')]
+          .map((n) => n.getAttribute("data-value") || n.getAttribute("data-answer-value"))
+          .filter(Boolean);
+        if (picked.length) values[q] = picked.join(", ");
+      });
+      return values;
+    }
+
+    async function run() {
+      const form = new URLSearchParams(location.search).get("form");
+      const frame = document.getElementById("frame");
+      await new Promise((resolve) => {
+        frame.onload = resolve;
+        frame.src = `/test-forms/${form.split("/").map(encodeURIComponent).join("/")}`;
+      });
+      const win = frame.contentWindow;
+      for (const file of CONTENT_FILES) {
+        const code = await (await fetch(`/extension/${file}`)).text();
+        win.eval(code);
+      }
+      const profile = await (await fetch("/extension/tests/fixtures/sample-student.json")).json();
+      const offline = new URLSearchParams(location.search).has("offline");
+      // ?dump only collects the field descriptions (Phase 5 dataset): no backend, nothing filled.
+      const dump = new URLSearchParams(location.search).has("dump");
+      if (dump) {
+        let fields = [];
+        win.GoForIt.requestPlan = async (payload) => {
+          fields = payload.fields;
+          return { ok: false, error: "dump only" };
+        };
+        win.GoForIt.getResume = async () => ({ resume: null, attach: false });
+        await win.GoForIt.runFill();
+        document.getElementById("out").textContent = JSON.stringify({ form, fields });
+        return;
+      }
+      // Stand-in for background.js: add the profile and call the backend
+      // (run-harness.js proxies /api/* to it). ?offline simulates it being down.
+      win.GoForIt.requestPlan = async (payload) => {
+        if (offline) return { ok: false, error: "The GoForIt backend isn't running." };
+        const resp = await fetch("/api/run-fill", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ ...payload, profile }),
+        });
+        return resp.ok ? { ok: true, plan: await resp.json() } : { ok: false, error: `HTTP ${resp.status}` };
+      };
+      // ?prefill simulates a site's resume reader having put a wrong value in a field.
+      if (new URLSearchParams(location.search).has("prefill")) {
+        win.document.querySelector("#last_name").value = "Kadapa";
+      }
+      // Stand-in for the saved resume (a tiny fake PDF); no real waiting in tests.
+      const noResume = new URLSearchParams(location.search).has("noresume");
+      win.GoForIt.getResume = async () => ({
+        resume: noResume ? null : { name: "test-resume.pdf", type: "application/pdf", size: 20, data: btoa("%PDF-1.4 test resume") },
+        attach: true,
+      });
+      // Stand-ins for the popup's switches and for POST /draft (no local model in tests).
+      const aiDrafts = new URLSearchParams(location.search).has("aidrafts");
+      win.GoForIt.getSettings = async () => ({ aiDrafts });
+      win.GoForIt.requestDraft = async ({ field }) => ({
+        ok: true,
+        action: { field_id: field.id, key: "free_text_question", status: "review", source: "draft",
+                  value: `AI DRAFT for: ${field.label}`, reason: "AI draft from your profile: check every sentence before submitting" },
+      });
+      win.GoForIt.SITE_PARSE_WAIT_MS = 50;
+      win.GoForIt.ADD_WAIT_MS = 50;
+      win.GoForIt.REVALIDATE_WAIT_MS = 20;
+      win.GoForIt.SECOND_PASS_WAIT_MS = 50;
+      // ?nofocus: like clicking Fill in the popup, where the page doesn't have keyboard
+      // focus and Chrome ignores el.focus()/el.blur() (no focus/blur events at all).
+      if (new URLSearchParams(location.search).has("nofocus")) {
+        win.HTMLElement.prototype.focus = function () {};
+        win.HTMLElement.prototype.blur = function () {};
+      }
+      // ?nosignal: the old behaviour (no focus signals, no fallback), to prove the test catches it.
+      if (new URLSearchParams(location.search).has("nosignal")) {
+        win.GoForIt.signalFocus = () => {};
+        win.GoForIt.revalidate = () => 0;
+      }
+      const before = offline ? snapshot(win.document) : null;
+      const result = await win.GoForIt.runFill();
+      if (win.GoForIt.lastDrafts) await win.GoForIt.lastDrafts; // AI drafts arrive after Fill returns
+      const out = {
+        form,
+        submitted: win.__goforitSubmitted === true,
+        addClicked: win.__addClicked || 0,
+        saveClicked: win.__saveClicked === true,
+        tags: win.__tags || null,
+        study: win.__study || null,
+        tags2: win.__tags2 || null,
+        enterInPlainBox: win.__enterInPlainBox === true,
+        comboText: Object.fromEntries([...win.document.querySelectorAll('div[role="combobox"]')].map((d) => [d.id, d.textContent.trim()])),
+        stillInvalid: win.document.querySelectorAll('[aria-invalid="true"]').length,
+        experienceClicked: win.__experienceClicked === true,
+        saved: win.__saved === true,
+        panelShown: !!win.document.getElementById("goforit-panel-host"),
+        result,
+        values: snapshot(win.document),
+        unchangedWhenOffline: offline ? JSON.stringify(before) === JSON.stringify(snapshot(win.document)) : null,
+      };
+      document.getElementById("out").textContent = JSON.stringify(out);
+    }
+
+    run().catch((err) => {
+      document.getElementById("out").textContent = JSON.stringify({ error: String(err && err.stack || err) });
+    });
+  </script>
+</body>
+</html>

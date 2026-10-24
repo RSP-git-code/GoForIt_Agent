@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Validate-on-leave form (like Workday)</title>
+<style>.error { outline: 2px solid red; }</style></head>
+<body>
+  <!-- Like Workday: each required box starts red (aria-invalid="true") and is only
+       re-checked when you LEAVE it (focusout), not when its value changes. -->
+  <form id="f" onsubmit="window.__goforitSubmitted = true; return false;">
+    <label for="first">First Name *</label><input id="first" required aria-invalid="true" class="error">
+    <label for="last">Last Name *</label><input id="last" required aria-invalid="true" class="error">
+    <label for="email">Email *</label><input id="email" type="email" required aria-invalid="true" class="error">
+    <button type="submit">Next</button>
+  </form>
+  <script>
+    for (const input of document.querySelectorAll("input")) {
+      input.addEventListener("focusout", () => {
+        const ok = input.value.trim() !== "";
+        input.setAttribute("aria-invalid", ok ? "false" : "true");
+        input.classList.toggle("error", !ok);
+      });
+    }
+  </script>
+</body>
+</html>

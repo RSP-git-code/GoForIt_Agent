@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Register with OTP (HCLTech-style)</title></head>
+<body>
+  <!-- Like HCLTech's careers sign-up (2026-10-20): placeholder-only boxes, an OTP box whose
+       name contains "mobile", and an image captcha. GoForIt fills name, email and mobile,
+       and leaves the OTP and the captcha for the student. -->
+  <form id="f" onsubmit="window.__goforitSubmitted = true; return false;">
+    <input name="name" placeholder="Enter name *">
+    <input name="email" type="email" placeholder="Enter email address *">
+    <input name="mobile" type="tel" placeholder="Enter mobile number *">
+    <input name="mobileOtp" placeholder="Enter OTP">
+    <input name="smsCode" autocomplete="one-time-code" placeholder="Code">
+    <input name="captchaText" placeholder="Enter captcha">
+    <button type="submit">Register</button>
+  </form>
+</body>
+</html>

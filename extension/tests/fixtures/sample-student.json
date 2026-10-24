@@ -1,0 +1,135 @@
+{
+  "personal": {
+    "full_name": "Ananya Rao",
+    "first_name": "Ananya",
+    "middle_name": "",
+    "last_name": "Rao",
+    "email": "ananya.rao@example.com",
+    "phone": "+91 9000012345",
+    "alternate_phone": "",
+    "date_of_birth": "2004-06-15",
+    "gender": "Female",
+    "category": "General",
+    "nationality": "Indian",
+    "current_city": "Hyderabad",
+    "current_state": "Telangana",
+    "permanent_address": "",
+    "pincode": "500001",
+    "college_email": "ananya.rao@college.example"
+  },
+  "links": {
+    "linkedin": "https://www.linkedin.com/in/example",
+    "github": "https://github.com/example",
+    "portfolio": "",
+    "leetcode": "",
+    "other": [],
+    "resume_link": "https://drive.google.com/file/d/EXAMPLE/view"
+  },
+  "education": {
+    "degree": {
+      "name": "B.Tech",
+      "branch": "Computer Science and Engineering",
+      "specialization": "AI and ML",
+      "college": "Example Institute of Technology",
+      "university": "Example University",
+      "registration_number": "22BCE1234",
+      "start_year": "2023",
+      "start_month": "07",
+      "graduation_year": "2027",
+      "graduation_month": "05",
+      "cgpa": "8.5",
+      "cgpa_scale": "10",
+      "percentage_equivalent": "",
+      "active_backlogs": 0,
+      "backlog_history": 0
+    },
+    "class_12": {
+      "school": "Example Junior College",
+      "board": "Telangana State Board of Intermediate Education (TSBIE)",
+      "stream": "PCM",
+      "year": "2023",
+      "percentage": "94.0",
+      "math_percentage": "97"
+    },
+    "class_10": {
+      "school": "Example Public School",
+      "board": "Central Board of Secondary Education (CBSE)",
+      "year": "2021",
+      "percentage": "92.0"
+    },
+    "diploma": null,
+    "gap_years": 0,
+    "gap_reason": "",
+    "entrance_exams": {
+      "jee_main_percentile": "96.2",
+      "jee_main_rank": "45000",
+      "jee_advanced_percentile": "NA",
+      "jee_advanced_rank": "NA"
+    }
+  },
+  "skills": {
+    "languages": [
+      "Python",
+      "Java",
+      "SQL"
+    ],
+    "ml_ai": [
+      "TensorFlow/Keras",
+      "scikit-learn",
+      "Stable-Baselines3"
+    ],
+    "web": [
+      "Django"
+    ],
+    "databases": [
+      "PostgreSQL"
+    ],
+    "tools": [
+      "Git"
+    ]
+  },
+  "projects": [
+    {
+      "title": "Example Project",
+      "summary": "A sample project.",
+      "tech": [
+        "Python"
+      ],
+      "link": ""
+    }
+  ],
+  "experience": [],
+  "certifications": [],
+  "achievements": [
+    "Co-lead, college Data Science Club"
+  ],
+  "languages_spoken": [
+    "English",
+    "Hindi"
+  ],
+  "preferences": {
+    "notice_period": "",
+    "available_from": "",
+    "willing_to_relocate": "",
+    "preferred_locations": [],
+    "expected_ctc": "",
+    "work_authorization_india": "Yes",
+    "requires_sponsorship": "No"
+  },
+  "standard_answers": {
+    "about_me": "",
+    "why_hire_me": "",
+    "strengths": "",
+    "weaknesses": ""
+  },
+  "resume_file": {
+    "name": "",
+    "stored": false
+  },
+  "diversity": {
+    "consent": "Yes",
+    "ethnicity": "Asian - Indian Subcontinent",
+    "disability": "No",
+    "veteran": ""
+  }
+}

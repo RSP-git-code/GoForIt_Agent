@@ -1,0 +1,20 @@
+/* Field highlights added by GoForIt. The panel itself is styled inside its
+   shadow root (content.js), so only these classes touch the page. */
+
+.goforit-filled {
+  outline: 2px solid #2da44e !important;
+  outline-offset: 2px !important;
+  background-color: rgba(45, 164, 78, 0.06) !important;
+}
+
+.goforit-review {
+  outline: 2px solid #d4a72c !important;
+  outline-offset: 2px !important;
+  background-color: rgba(212, 167, 44, 0.10) !important;
+}
+
+.goforit-missing {
+  outline: 2px solid #cf222e !important;
+  outline-offset: 2px !important;
+  background-color: rgba(207, 34, 46, 0.06) !important;
+}

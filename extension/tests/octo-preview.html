@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Octo preview</title></head>
+<body>
+  <!-- Dev-only: renders the Octo side panel outside Chrome's side panel, with a fake
+       chrome.storage holding the made-up sample profile and requests sent through the
+       test server's /api proxy. Used by: node extension/tests/octo-preview.js -->
+  <script>
+    window.GOFORIT_BACKEND_URL = "/api";
+    (async () => {
+      const profile = await (await fetch("/extension/tests/fixtures/sample-student.json")).json();
+      // ?pending=1 fakes text selected on a job page (right-click "Ask Agent Octo about this").
+      let pending = new URLSearchParams(location.search).has("pending")
+        ? { text: "Data Analyst Intern\nRequirements:\n- Strong SQL and Excel\n- Power BI or Tableau dashboards\n- Python (pandas)\n- Graduating 2027",
+            title: "Data Analyst Intern - Example Corp | Careers", at: Date.now() } : null;
+      window.chrome = { storage: {
+        local: { get: async (k) => (k === "octoChat" ? {} : { profile }), set: async () => {}, remove: async () => {} },
+        session: { get: async () => ({ octoPending: pending }), remove: async () => { pending = null; } },
+        onChanged: { addListener: () => {} } } };
+      const html = await (await fetch("/extension/sidepanel/octo.html")).text();
+      const doc = new DOMParser().parseFromString(html, "text/html");
+      const css = document.createElement("link");
+      css.rel = "stylesheet"; css.href = "/extension/sidepanel/octo.css";
+      document.head.append(css);
+      document.body.append(...[...doc.body.children].filter((n) => n.tagName !== "SCRIPT"));
+      for (const src of ["/extension/shared/profile-schema.js", "/extension/shared/storage.js", "/extension/sidepanel/octo.js"]) {
+        await new Promise((ok) => { const s = document.createElement("script"); s.src = src; s.onload = ok; document.body.append(s); });
+      }
+      if (new URLSearchParams(location.search).has("measure")) {
+        await new Promise((r) => setTimeout(r, 300));
+        const wide = [...document.querySelectorAll("body *")].filter((el) => el.getBoundingClientRect().right > innerWidth + 1)
+          .map((el) => `${el.tagName}#${el.id}.${el.className.baseVal ?? el.className} right=${Math.round(el.getBoundingClientRect().right)}`);
+        document.title = JSON.stringify({ innerWidth, scroll: document.documentElement.scrollWidth, wide: wide.slice(0, 6) });
+        document.body.dataset.measure = document.title;
+      }
+      const q = new URLSearchParams(location.search);
+      if (q.has("dark")) document.documentElement.dataset.theme = "dark";
+      if (q.has("upload")) {
+        // A tiny hand-made PDF, put into the file input as if picked with 📎.
+        await new Promise((r) => setTimeout(r, 1500));
+        const lines = ["Quality Control Associate", "Required Hard Skills:", "Certification in ITIL Foundation is mandatory.",
+                       "Knowledge of QC and QA concepts.", "Proficient in MINITAB or SPSS systems.",
+                       "Proficient in BI, Office 365 and SharePoint tools.", "Experience with six sigma DMAIC methodology."];
+        const content = "BT /F1 12 Tf 72 720 Td 16 TL " + lines.map((l) => `(${l}) Tj T*`).join(" ") + " ET";
+        const objs = ["<< /Type /Catalog /Pages 2 0 R >>", "<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
+          "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>",
+          `<< /Length ${content.length} >>\nstream\n${content}\nendstream`, "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>"];
+        let pdf = "%PDF-1.4\n"; const offs = [];
+        objs.forEach((o, i) => { offs.push(pdf.length); pdf += `${i + 1} 0 obj\n${o}\nendobj\n`; });
+        const xref = pdf.length;
+        pdf += `xref\n0 ${objs.length + 1}\n0000000000 65535 f \n` + offs.map((o) => `${String(o).padStart(10, "0")} 00000 n \n`).join("");
+        pdf += `trailer\n<< /Size ${objs.length + 1} /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF\n`;
+        const dt = new DataTransfer();
+        dt.items.add(new File([pdf], "QC Associate JD.pdf", { type: "application/pdf" }));
+        const input = document.getElementById("file");
+        input.files = dt.files;
+        input.dispatchEvent(new Event("change"));
+      }
+      if (q.has("run")) {
+        await new Promise((r) => setTimeout(r, 1500)); // let the greeting finish
+        document.getElementById("input").value = `AI Engineer Intern - 2027 batch
+Requirements:
+- B.Tech in CS or related field, graduating in 2026 or 2027
+- Strong Python and SQL
+- Experience with LangChain, RAG and vector databases
+- Docker and AWS deployment
+- Minimum 7.5 CGPA
+Good to have:
+- Kubernetes`;
+        document.getElementById("send").click();
+        await new Promise((r) => setTimeout(r, 6000)); // let all replies type out
+        [...document.querySelectorAll("#chat .chips button")].find((b) => /plan/i.test(b.textContent))?.click();
+      }
+    })();
+  </script>
+</body>
+</html>

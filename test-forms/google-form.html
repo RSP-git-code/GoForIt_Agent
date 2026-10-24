@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Offline copy of a Google Forms layout (TPO-style registration form).
+       The DOM structure follows real Google Forms: each question is a
+       div[role=listitem] with a div[role=heading] title, radios/checkboxes are
+       divs with role/aria-checked, and dropdowns are div[role=listbox]. A small
+       script at the bottom mimics Google's widget behaviour. -->
+  <title>Campus Placement Registration 2026-27</title>
+  <style>
+    body { background: #f0ebf8; font-family: Roboto, Arial, sans-serif; margin: 0; }
+    .form { max-width: 640px; margin: 12px auto; }
+    .card { background: #fff; border-radius: 8px; border: 1px solid #dadce0; padding: 24px; margin-bottom: 12px; }
+    .header { border-top: 10px solid #673ab7; }
+    .header h1 { font-size: 28px; font-weight: 400; margin: 0 0 8px; }
+    [role="heading"] { font-size: 16px; margin-bottom: 12px; }
+    .req { color: #d93025; }
+    .desc { font-size: 12px; color: #5f6368; margin: -6px 0 10px; }
+    input.whsOnd, textarea.KHxj8b { width: 100%; border: none; border-bottom: 1px solid #dadce0; font-size: 14px; padding: 6px 0; }
+    [role="radio"], [role="checkbox"] { display: flex; align-items: center; gap: 10px; padding: 6px 0; cursor: pointer; }
+    [role="radio"]::before { content: ""; width: 16px; height: 16px; border: 2px solid #5f6368; border-radius: 50%; }
+    [role="radio"][aria-checked="true"]::before { background: #673ab7; border-color: #673ab7; }
+    [role="checkbox"]::before { content: ""; width: 16px; height: 16px; border: 2px solid #5f6368; border-radius: 2px; }
+    [role="checkbox"][aria-checked="true"]::before { background: #673ab7; border-color: #673ab7; }
+    [role="listbox"] { display: inline-block; border: 1px solid #dadce0; border-radius: 4px; min-width: 200px; cursor: pointer; position: relative; }
+    [role="listbox"] [role="option"] { padding: 8px 12px; display: none; }
+    [role="listbox"] [role="option"][aria-selected="true"] { display: block; }
+    [role="listbox"].open [role="option"] { display: block; }
+    .submit { background: #673ab7; color: #fff; padding: 10px 24px; border-radius: 4px; display: inline-block; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <form class="form" action="https://docs.google.com/forms/d/e/TEST/formResponse" method="POST">
+    <div class="card header">
+      <h1>Campus Placement Registration 2026-27</h1>
+      <div>Training &amp; Placement Office. All students of the 2027 batch must register before the drive.</div>
+    </div>
+
+    <div role="list">
+      <div role="listitem" class="card">
+        <div role="heading" aria-level="3">Full Name (as per records) <span class="req">*</span></div>
+        <input type="text" class="whsOnd" aria-required="true">
+      </div>
+
+      <div role="listitem" class="card">
+        <div role="heading" aria-level="3">Registration Number <span class="req">*</span></div>
+        <input type="text" class="whsOnd" aria-required="true">
+      </div>
+
+      <div role="listitem" class="card">
+        <div role="heading" aria-level="3">Personal Email ID <span class="req">*</span></div>
+        <input type="email" class="whsOnd" aria-required="true">
+      </div>
+
+      <div role="listitem" class="card">
+        <div role="heading" aria-level="3">Mobile No. <span class="req">*</span></div>
+        <div class="desc">10 digits, without +91</div>
+        <input type="text" class="whsOnd" aria-required="true">
+      </div>
+
+      <div role="listitem" class="card">
+        <div role="heading" aria-level="3">Gender <span class="req">*</span></div>
+        <div role="radiogroup" aria-required="true">
+          <div role="radio" aria-checked="false" data-value="Male" aria-label="Male"><span>Male</span></div>
+          <div role="radio" aria-checked="false" data-value="Female" aria-label="Female"><span>Female</span></div>
+          <div role="radio" aria-checked="false" data-value="Prefer not to say" aria-label="Prefer not to say"><span>Prefer not to say</span></div>
+        </div>
+      </div>
+
+      <div role="listitem" class="card">
+        <div role="heading" aria-level="3">Date of Birth</div>
+        <input type="date" class="whsOnd">
+      </div>
+
+      <div role="listitem" class="card">
+        <div role="heading" aria-level="3">Branch <span class="req">*</span></div>
+        <div role="listbox" aria-required="true">
+          <div role="option" data-value="" aria-selected="true">Choose</div>
+          <div role="option" data-value="CSE" aria-selected="false">CSE</div>
+          <div role="option" data-value="CSE (AI and ML)" aria-selected="false">CSE (AI and ML)</div>
+          <div role="option" data-value="ECE" aria-selected="false">ECE</div>
+          <div role="option" data-value="EEE" aria-selected="false">EEE</div>
+          <div role="option" data-value="Mechanical" aria-selected="false">Mechanical</div>
+        </div>
+      </div>
+
+      <div role="listitem" class="card">
+        <div role="heading" aria-level="3">10th Percentage <span class="req">*</span></div>
+        <input type="text" class="whsOnd" aria-required="true">
+      </div>
+
+      <div role="listitem" class="card">
+        <div role="heading" aria-level="3">10th Board</div>
+        <div role="radiogroup">
+          <div role="radio" aria-checked="false" data-value="CBSE" aria-label="CBSE"><span>CBSE</span></div>
+          <div role="radio" aria-checked="false" data-value="ICSE" aria-label="ICSE"><span>ICSE</span></div>
+          <div role="radio" aria-checked="false" data-value="State Board" aria-label="State Board"><span>State Board</span></div>
+        </div>
+      </div>
+
+      <div role="listitem" class="card">
+        <div role="heading" aria-level="3">12th / Intermediate Percentage <span class="req">*</span></div>
+        <input type="text" class="whsOnd" aria-required="true">
+      </div>
+
+      <div role="listitem" class="card">
+        <div role="heading" aria-level="3">B.Tech CGPA (up to latest semester) <span class="req">*</span></div>
+        <input type="text" class="whsOnd" aria-required="true">
+      </div>
+
+      <div role="listitem" class="card">
+        <div role="heading" aria-level="3">No. of Active Backlogs <span class="req">*</span></div>
+        <input type="number" class="whsOnd" aria-required="true">
+      </div>
+
+      <div role="listitem" class="card">
+        <div role="heading" aria-level="3">Year of Passing <span class="req">*</span></div>
+        <div role="listbox" aria-required="true">
+          <div role="option" data-value="" aria-selected="true">Choose</div>
+          <div role="option" data-value="2026" aria-selected="false">2026</div>
+          <div role="option" data-value="2027" aria-selected="false">2027</div>
+          <div role="option" data-value="2028" aria-selected="false">2028</div>
+        </div>
+      </div>
+
+      <div role="listitem" class="card">
+        <div role="heading" aria-level="3">Technical skills (tick all that apply)</div>
+        <div role="list">
+          <div role="checkbox" aria-checked="false" data-answer-value="Python" aria-label="Python"><span>Python</span></div>
+          <div role="checkbox" aria-checked="false" data-answer-value="Java" aria-label="Java"><span>Java</span></div>
+          <div role="checkbox" aria-checked="false" data-answer-value="JavaScript" aria-label="JavaScript"><span>JavaScript</span></div>
+          <div role="checkbox" aria-checked="false" data-answer-value="SQL" aria-label="SQL"><span>SQL</span></div>
+          <div role="checkbox" aria-checked="false" data-answer-value="Machine Learning" aria-label="Machine Learning"><span>Machine Learning</span></div>
+        </div>
+      </div>
+
+      <div role="listitem" class="card">
+        <div role="heading" aria-level="3">LinkedIn Profile URL</div>
+        <input type="url" class="whsOnd">
+      </div>
+
+      <div role="listitem" class="card">
+        <div role="heading" aria-level="3">GitHub Profile URL</div>
+        <input type="url" class="whsOnd">
+      </div>
+
+      <div role="listitem" class="card">
+        <div role="heading" aria-level="3">Willing to relocate anywhere in India? <span class="req">*</span></div>
+        <div role="radiogroup" aria-required="true">
+          <div role="radio" aria-checked="false" data-value="Yes" aria-label="Yes"><span>Yes</span></div>
+          <div role="radio" aria-checked="false" data-value="No" aria-label="No"><span>No</span></div>
+        </div>
+      </div>
+
+      <div role="listitem" class="card">
+        <div role="heading" aria-level="3">Why do you want to work with Acme Analytics? <span class="req">*</span></div>
+        <textarea class="KHxj8b" rows="3" aria-required="true"></textarea>
+      </div>
+
+      <div role="listitem" class="card">
+        <div role="heading" aria-level="3">Declaration <span class="req">*</span></div>
+        <div role="list">
+          <div role="checkbox" aria-checked="false" data-answer-value="I hereby declare that the above information is true" aria-label="I hereby declare that the above information is true"><span>I hereby declare that the above information is true</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div role="button" class="submit" data-tripwire tabindex="0">Submit</div>
+    </div>
+  </form>
+
+  <script src="tripwire.js"></script>
+  <script>
+    // Mimics Google Forms widgets: radios/checkboxes toggle aria-checked on
+    // click; dropdowns open on click and select the clicked option.
+    document.addEventListener("click", (event) => {
+      const radio = event.target.closest('[role="radio"]');
+      if (radio) {
+        for (const r of radio.closest('[role="radiogroup"]').querySelectorAll('[role="radio"]')) {
+          r.setAttribute("aria-checked", String(r === radio));
+        }
+        return;
+      }
+      const box = event.target.closest('[role="checkbox"]');
+      if (box) {
+        box.setAttribute("aria-checked", String(box.getAttribute("aria-checked") !== "true"));
+        return;
+      }
+      const option = event.target.closest('[role="listbox"].open [role="option"]');
+      if (option) {
+        const listbox = option.closest('[role="listbox"]');
+        for (const o of listbox.querySelectorAll('[role="option"]')) {
+          o.setAttribute("aria-selected", String(o === option));
+        }
+        listbox.classList.remove("open");
+        event.stopPropagation();
+        return;
+      }
+      const listbox = event.target.closest('[role="listbox"]');
+      if (listbox) listbox.classList.add("open");
+    });
+  </script>
+</body>
+</html>

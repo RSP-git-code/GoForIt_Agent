@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+  <!-- 16 px version of icon.svg: same tile, form and spark, no wand (too small to read). -->
+  <rect x="0" y="0" width="16" height="16" rx="3.5" fill="#1b8f42"/>
+  <path d="M3 2 h6 l3 3 v8 a1 1 0 0 1 -1 1 h-8 a1 1 0 0 1 -1 -1 v-10 a1 1 0 0 1 1 -1 z" fill="#ffffff"/>
+  <rect x="4" y="6" width="5" height="1.5" rx="0.75" fill="#1b8f42"/>
+  <rect x="4" y="9" width="3" height="1.5" rx="0.75" fill="#1b8f42"/>
+  <path d="M11.5 7 L12.4 10.1 L15.5 11 L12.4 11.9 L11.5 15 L10.6 11.9 L7.5 11 L10.6 10.1 Z" fill="#ffd23f" stroke="#ffffff" stroke-width="0.7" stroke-linejoin="round"/>
+</svg>

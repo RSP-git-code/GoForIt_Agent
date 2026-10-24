@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <!-- GoForIt icon: a form being filled by a magic wand. Source for icon32/48/128.png
+       (icon16-src.svg is the simpler 16 px version). Render: node extension/icons/render-icons.js -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22a04b"/>
+      <stop offset="1" stop-color="#157a35"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fff2a8" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#fff2a8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- background tile -->
+  <rect x="4" y="4" width="120" height="120" rx="26" fill="url(#bg)"/>
+  <!-- the form: a sheet with a folded corner and three lines (two filled, one still empty) -->
+  <path d="M24 20 h42 l18 18 v64 a6 6 0 0 1 -6 6 h-54 a6 6 0 0 1 -6 -6 v-76 a6 6 0 0 1 6 -6 z" fill="#ffffff"/>
+  <path d="M66 20 v14 a4 4 0 0 0 4 4 h14 z" fill="#cfe9d6"/>
+  <rect x="29" y="48" width="40" height="7" rx="3.5" fill="#22a04b"/>
+  <rect x="29" y="64" width="30" height="7" rx="3.5" fill="#22a04b"/>
+  <rect x="29" y="80" width="20" height="7" rx="3.5" fill="#bcd9c4"/>
+  <!-- the wand: handle in the bottom-right corner, white tip touching the spark -->
+  <line x1="110" y1="110" x2="80" y2="80" stroke="#1f1f1f" stroke-width="11" stroke-linecap="round"/>
+  <line x1="84" y1="84" x2="79" y2="79" stroke="#ffffff" stroke-width="11" stroke-linecap="round"/>
+  <!-- the spark at the tip, with a soft glow -->
+  <circle cx="72" cy="72" r="24" fill="url(#glow)"/>
+  <path d="M72 50 L77 67 L94 72 L77 77 L72 94 L67 77 L50 72 L67 67 Z" fill="#ffd23f" stroke="#ffffff" stroke-width="3" stroke-linejoin="round"/>
+</svg>

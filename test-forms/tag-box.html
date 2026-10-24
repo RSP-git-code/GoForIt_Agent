@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Skills tag boxes (Workday-style)</title>
+<style>
+  .chip { display: inline-block; background: #e0e7ff; border-radius: 10px; padding: 2px 8px; margin: 2px; }
+  [role="listbox"] { border: 1px solid #ccc; max-width: 300px; }
+  [role="option"] { padding: 4px; cursor: pointer; }
+</style></head>
+<body>
+  <!-- Like Workday's "Type to Add Skills" (seen 2026-10-22): typing shows suggestions, clicking one adds a
+       tag and empties the box. Expected: GoForIt adds the profile's skills the site offers, one by one,
+       and in the Workday-style box (second) presses Enter only in its search box to get results.
+       Enter is never pressed in the ordinary Comments box, and nothing is submitted. -->
+  <form id="f" onsubmit="window.__goforitSubmitted = true; return false;">
+    <h3>Skills</h3>
+    <div id="chips"></div>
+    <input id="skills" placeholder="Type to Add Skills" aria-label="Type to Add Skills" role="combobox"
+           aria-autocomplete="list" aria-controls="skill-list" autocomplete="off">
+    <div id="skill-list" role="listbox" hidden></div>
+
+    <h3>Other skills (Workday: searches only when you press Enter)</h3>
+    <div id="chips2"></div>
+    <div data-automation-id="multiSelectContainer">
+      <input id="skills2" data-automation-id="searchBox" placeholder="Type to Add Skills" aria-label="Type to Add Skills" autocomplete="off">
+    </div>
+    <div id="results2"></div>
+    <label for="comments">Comments</label><input id="comments" name="comments">
+    <button type="submit">Save and Continue</button>
+  </form>
+  <script>
+    // The site's own list of skills it knows (no "Stable-Baselines3", so that one can't be added).
+    const KNOWN = ["Python", "Python (Programming Language)", "Java", "JavaScript", "SQL", "Django", "Git", "GitHub",
+                   "PostgreSQL", "scikit-learn", "TensorFlow", "Keras", "Hyper Text Markup Language (HTML)",
+                   "C", "C++", "Cloud Computing"];
+    const input = document.getElementById("skills"), list = document.getElementById("skill-list");
+    window.__tags = [];
+    input.addEventListener("input", () => {
+      const q = input.value.trim().toLowerCase();
+      list.innerHTML = "";
+      if (!q) { list.hidden = true; return; }
+      for (const k of KNOWN.filter((k) => k.toLowerCase().includes(q)).slice(0, 6)) {
+        const o = document.createElement("div");
+        o.setAttribute("role", "option");
+        o.textContent = k;
+        o.addEventListener("click", () => {
+          if (!window.__tags.includes(k)) window.__tags.push(k);
+          document.getElementById("chips").innerHTML = window.__tags.map((t) => `<span class="chip">${t}</span>`).join("");
+          input.value = ""; list.hidden = true;
+        });
+        list.append(o);
+      }
+      list.hidden = !list.children.length;
+    });
+    // Workday-style box: results appear only after Enter; clicking a promptOption adds the tag.
+    window.__tags2 = ["Java"]; // already picked before Fill: GoForIt must not un-tick it
+    const box2 = document.getElementById("skills2"), results2 = document.getElementById("results2");
+    // Like real Workday: the search answers after a delay (it asks the server), and the results list
+    // STAYS OPEN after a pick, so a filler that doesn't wait for fresh results races through stale ones.
+    box2.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter") return;
+      const q = box2.value.trim().toLowerCase();
+      setTimeout(() => {
+        results2.innerHTML = "";
+        for (const k of KNOWN.filter((k) => q && k.toLowerCase().includes(q)).slice(0, 6)) {
+          // Like Workday: each result has a tick box; clicking a ticked one REMOVES the skill.
+          const o = document.createElement("div");
+          o.setAttribute("data-automation-id", "promptOption");
+          // Workday highlights the first row (blue) and marks it aria-selected="true" even though
+          // its box is EMPTY: that highlight must not be mistaken for "already picked".
+          if (!results2.children.length) o.setAttribute("aria-selected", "true");
+          const tick = document.createElement("input");
+          tick.type = "checkbox";
+          tick.checked = window.__tags2.includes(k);
+          o.append(tick, document.createTextNode(k));
+          o.addEventListener("click", () => {
+            if (window.__tags2.includes(k)) window.__tags2 = window.__tags2.filter((t) => t !== k);
+            else window.__tags2.push(k);
+            tick.checked = window.__tags2.includes(k);
+            box2.value = "";
+          });
+          results2.append(o);
+        }
+      }, 700);
+    });
+    // Enter must NEVER be pressed in an ordinary text box.
+    document.getElementById("comments").addEventListener("keydown", (e) => { if (e.key === "Enter") window.__enterInPlainBox = true; });
+  </script>
+</body>
+</html>

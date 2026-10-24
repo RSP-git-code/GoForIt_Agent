@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Add-section form (like Oracle Cloud step 3)</title></head>
+<body>
+  <!-- Education boxes appear only after "Add Education" is clicked. GoForIt may click
+       that one button (type="button"), never "Add Experience", Save or Next. -->
+  <form id="f" onsubmit="window.__goforitSubmitted = true; return false;">
+    <h2>Education *</h2>
+    <p>Enter details about your highest level of education.</p>
+    <div id="edu"></div>
+    <button type="button" id="add-edu" onclick="window.__addClicked = (window.__addClicked || 0) + 1; openEducation();">ADD EDUCATION</button>
+    <h2>Experience</h2>
+    <button type="button" onclick="window.__experienceClicked = true">ADD EXPERIENCE</button>
+    <label><input type="checkbox" name="agree"> I agree to the privacy policy</label>
+    <button type="submit">Next</button>
+  </form>
+  <script>
+    function openEducation() {
+      document.getElementById("edu").innerHTML =
+        '<label for="school">School</label><input id="school" type="text">' +
+        '<label for="degree">Degree</label><select id="degree"><option>Select</option><option>Bachelor of Technology</option><option>Master of Science</option></select>' +
+        '<label for="major">Field of Study</label><input id="major" type="text">' +
+        '<button type="button" onclick="window.__saved = true">Save</button>';
+    }
+  </script>
+</body>
+</html>

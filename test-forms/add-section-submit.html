@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Add button that would submit</title></head>
+<body>
+  <!-- Here "Add Education" has no type inside a form, so in HTML it is a SUBMIT
+       button. GoForIt must refuse to click it and only show the hint. -->
+  <form id="f" onsubmit="window.__goforitSubmitted = true; return false;">
+    <h2>Education *</h2>
+    <button id="add-edu" onclick="window.__addClicked = (window.__addClicked || 0) + 1">Add Education</button>
+  </form>
+</body>
+</html>

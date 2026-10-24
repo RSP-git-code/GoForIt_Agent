@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Open questions (AI drafts)</title></head>
+<body>
+  <!-- With the "AI drafts" switch on, the empty question gets an AI draft after Fill;
+       the one the student already answered is never overwritten. -->
+  <form id="f" onsubmit="window.__goforitSubmitted = true; return false;">
+    <label for="name">Full Name</label><input id="name" type="text">
+    <label for="why">Why do you want to join Acme?</label><textarea id="why"></textarea>
+    <label for="proud">Describe a project you are proud of.</label><textarea id="proud">My own words about my project.</textarea>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>

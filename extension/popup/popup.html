@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GoForIt</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <h1>GoForIt</h1>
+  <p>Backend: <span id="backend-status">checking…</span> <button id="recheck" class="link">recheck</button></p>
+  <p>Profile: <span id="profile-status">loading…</span></p>
+  <p>Resume: <span id="resume-status">loading…</span></p>
+  <label class="toggle"><input type="checkbox" id="attach-resume"> Attach my resume to upload boxes</label>
+  <label class="toggle" title="Uses Ollama on this laptop. About 10-30 s per answer; drafts can contain made-up details, so read every sentence.">
+    <input type="checkbox" id="ai-drafts"> AI drafts for written answers (experimental: check every sentence)</label>
+
+  <button id="fill-page" class="primary">Fill this page</button>
+  <p id="fill-status" class="small"></p>
+  <button id="edit-profile">Edit profile</button>
+  <button id="ask-octo" title="Paste a job description: fit, missing skills and how to learn them">🐙 Ask Agent Octo</button>
+
+  <!-- Scripts go at the end so the elements above exist when the script runs. -->
+  <script src="../shared/profile-schema.js"></script>
+  <script src="../shared/storage.js"></script>
+  <script src="../shared/fill.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

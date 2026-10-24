@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Agent Octo</title>
+  <link rel="stylesheet" href="octo.css">
+</head>
+<body>
+  <!-- Agent Octo: a chat in Chrome's side panel. Paste a job description or ask him
+       something; replies come from the GoForIt backend on this laptop (POST /octo). -->
+  <!-- Underwater scenery behind the whole panel (decoration only; octo.css animates it). -->
+  <div class="sea" aria-hidden="true">
+    <span class="ray r1"></span><span class="ray r2"></span><span class="ray r3"></span>
+    <span class="bubble b1"></span><span class="bubble b2"></span><span class="bubble b3"></span>
+    <span class="bubble b4"></span><span class="bubble b5"></span><span class="bubble b6"></span>
+    <span class="bubble b7"></span><span class="bubble b8"></span>
+    <svg class="fish fish-1" viewBox="0 0 60 30"><path class="fin" d="M44 15 l14 -10 v20 z"/><ellipse cx="26" cy="15" rx="20" ry="11"/><circle class="fish-eye" cx="14" cy="12" r="2.5"/></svg>
+    <svg class="fish fish-2" viewBox="0 0 60 30"><path class="fin" d="M44 15 l14 -10 v20 z"/><ellipse cx="26" cy="15" rx="20" ry="11"/><circle class="fish-eye" cx="14" cy="12" r="2.5"/></svg>
+    <svg class="fish fish-3" viewBox="0 0 60 30"><path class="fin" d="M44 15 l14 -10 v20 z"/><ellipse cx="26" cy="15" rx="20" ry="11"/><circle class="fish-eye" cx="14" cy="12" r="2.5"/></svg>
+    <svg class="jelly" viewBox="0 0 40 60"><path d="M4 22 q16 -34 32 0 z"/><path class="strand" d="M10 22 q-3 12 2 26 M20 22 q3 14 -2 30 M30 22 q-3 12 2 26"/></svg>
+    <svg class="weed weed-l" viewBox="0 0 40 90"><path d="M20 90 q-14 -20 0 -40 q14 -20 0 -45"/><path d="M10 90 q-10 -15 2 -32"/></svg>
+    <svg class="weed weed-r" viewBox="0 0 40 90"><path d="M20 90 q14 -22 0 -42 q-14 -20 2 -42"/><path d="M30 90 q10 -16 -2 -30"/></svg>
+    <svg class="crab" viewBox="0 0 50 30"><ellipse cx="25" cy="18" rx="14" ry="9"/><path class="leg" d="M12 20 l-8 6 M14 23 l-6 6 M38 20 l8 6 M36 23 l6 6"/><circle cx="6" cy="9" r="5"/><circle cx="44" cy="9" r="5"/><circle class="crab-eye" cx="20" cy="12" r="2"/><circle class="crab-eye" cx="30" cy="12" r="2"/></svg>
+    <span class="sand"></span>
+  </div>
+
+  <div id="stage">
+    <button id="theme" type="button" title="Day / night sea">🌙</button>
+    <button id="new-chat" type="button" title="Start a new chat">↻ New chat</button>
+    <!-- Octo is SVG; octo.css animates him by mood (class on #octo) and while talking.
+         octo.js moves his pupils towards the mouse. -->
+    <svg id="octo" class="idle" viewBox="0 0 160 150" aria-label="Agent Octo">
+      <g class="body">
+        <g class="tentacles">
+          <path class="t t1" d="M44 92 q-16 26 -6 44"/>
+          <path class="t t2" d="M58 98 q-8 28 2 42"/>
+          <path class="t t3" d="M72 100 q-2 28 8 40"/>
+          <path class="t t4" d="M88 100 q2 28 -8 40"/>
+          <path class="t t5" d="M102 98 q8 28 -2 42"/>
+          <path class="t t6" d="M116 92 q16 26 6 44"/>
+        </g>
+        <ellipse class="head" cx="80" cy="62" rx="46" ry="44"/>
+        <ellipse class="shine" cx="60" cy="40" rx="12" ry="8"/>
+        <ellipse class="cheek" cx="54" cy="80" rx="7" ry="4"/>
+        <ellipse class="cheek" cx="106" cy="80" rx="7" ry="4"/>
+        <path class="brow brow-l" d="M55 44 q9 -5 17 0"/>
+        <path class="brow brow-r" d="M89 44 q8 -5 17 0"/>
+        <g class="eye">
+          <ellipse cx="64" cy="62" rx="10" ry="12" fill="#fff"/>
+          <circle class="pupil" cx="65" cy="63" r="5"/><circle class="glint" cx="67" cy="60" r="1.6"/>
+          <ellipse class="lid" cx="64" cy="62" rx="11" ry="13"/>
+        </g>
+        <g class="eye">
+          <ellipse cx="96" cy="62" rx="10" ry="12" fill="#fff"/>
+          <circle class="pupil" cx="97" cy="63" r="5"/><circle class="glint" cx="99" cy="60" r="1.6"/>
+          <ellipse class="lid" cx="96" cy="62" rx="11" ry="13"/>
+        </g>
+        <g class="mouth-g">
+          <path class="mouth happy-mouth" d="M70 84 q10 9 20 0"/>
+          <path class="mouth flat-mouth" d="M71 86 h18"/>
+          <path class="mouth worried-mouth" d="M70 89 q10 -7 20 0"/>
+          <ellipse class="mouth talk-mouth" cx="80" cy="87" rx="6" ry="4"/>
+        </g>
+        <text class="dots" x="126" y="26">…</text>
+      </g>
+    </svg>
+    <div class="nameplate"><b>Agent Octo</b><span id="status">your job-fit buddy</span></div>
+  </div>
+
+  <main id="chat" aria-live="polite"></main>
+
+  <form id="composer" autocomplete="off">
+    <!-- 📎 opens the file picker (the hidden <input type="file">); for job descriptions you can't select or that came as a downloaded PDF -->
+    <button id="attach" type="button" title="Upload a job description (PDF or .txt)" aria-label="Upload a job description">📎</button>
+    <input id="file" type="file" accept=".pdf,.txt,application/pdf,text/plain" hidden>
+    <textarea id="input" rows="1" placeholder="Paste a job description, or ask me something…"></textarea>
+    <button id="send" type="submit" aria-label="Send">➤</button>
+  </form>
+
+  <script src="../shared/profile-schema.js"></script>
+  <script src="../shared/storage.js"></script>
+  <script src="octo.js"></script>
+</body>
+</html>

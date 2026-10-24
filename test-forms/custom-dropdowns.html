@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Custom dropdowns (like SAP SuccessFactors, Oracle, IBM)</title>
+<style>
+  .list { display: none; border: 1px solid #999; list-style: none; padding: 0; margin: 0; width: 240px; }
+  .list.open { display: block; }
+  .list li { padding: 4px; }
+  .q { margin: 12px 0; }
+</style></head>
+<body>
+  <!-- Three kinds of site-drawn dropdowns. None is a real <select>; options appear only when opened.
+       GoForIt must press the box, click the matching option, and never touch the Save button. -->
+  <form id="f" onsubmit="window.__goforitSubmitted = true; return false;">
+    <!-- 1. SAP style: read-only input showing "No Selection", opens on mousedown -->
+    <div class="q"><label for="gender">Gender (As shown on your national ID)</label>
+      <input id="gender" role="combobox" readonly value="No Selection" aria-controls="gender-list" aria-expanded="false">
+      <ul id="gender-list" class="list" role="listbox">
+        <li role="option">Female</li><li role="option">Male</li><li role="option">Prefer not to say</li></ul></div>
+
+    <!-- 2. Div-based (Oracle / IBM style): opens on click -->
+    <div class="q"><span id="auth-label">Are you eligible to work in the country / territory where this role is based?</span>
+      <div id="auth" role="combobox" aria-labelledby="auth-label" aria-controls="auth-list" tabindex="0">No Selection</div>
+      <ul id="auth-list" class="list" role="listbox"><li role="option">Yes</li><li role="option">No</li></ul></div>
+
+    <!-- 3. Searchable: typing filters the list -->
+    <div class="q"><label for="city">Current City</label>
+      <input id="city" role="combobox" aria-controls="city-list" placeholder="Type to search">
+      <ul id="city-list" class="list" role="listbox"></ul></div>
+
+    <!-- 4. A normal <select> -->
+    <div class="q"><label for="country">Country/Territory:</label>
+      <select id="country"><option>- Select -</option><option>India</option><option>United Kingdom</option></select></div>
+
+    <!-- Diversity (SAP style): ethnicity and disability stay DISABLED until consent is "Yes" -->
+    <div class="q"><label for="consent">Diversity and Inclusion Consent</label>
+      <input id="consent" role="combobox" readonly value="No Selection" aria-controls="consent-list">
+      <ul id="consent-list" class="list" role="listbox"><li role="option">Yes</li><li role="option">No</li></ul></div>
+    <div class="q"><label for="ethnic">What is your ethnic group?</label>
+      <input id="ethnic" role="combobox" readonly disabled value="No Selection" aria-controls="eth-list">
+      <ul id="eth-list" class="list" role="listbox"><li role="option">White</li>
+        <li role="option">Asian or Asian British - Indian</li><li role="option">Black</li><li role="option">Prefer not to say</li></ul></div>
+    <div class="q"><label for="disability">Do you have a disability (including physical or sensory)?</label>
+      <input id="disability" role="combobox" readonly disabled value="No Selection" aria-controls="dis-list">
+      <ul id="dis-list" class="list" role="listbox"><li role="option">Yes</li><li role="option">No</li></ul></div>
+    <!-- Free-text accessibility question: always left for the student -->
+    <div class="q"><label for="access">Additional information about accessibility?</label>
+      <textarea id="access" placeholder="Tell us a little bit about yourself"></textarea></div>
+
+    <button type="submit" onclick="window.__saveClicked = true">Save</button>
+  </form>
+  <script>
+    function wire(box, list, openOn, setValue) {
+      box.addEventListener(openOn, () => { list.classList.add("open"); box.setAttribute("aria-expanded", "true"); });
+      list.addEventListener("click", (e) => {
+        const li = e.target.closest('[role="option"]');
+        if (!li) return;
+        setValue(li.textContent);
+        list.querySelectorAll('[role="option"]').forEach((o) => o.setAttribute("aria-selected", String(o === li)));
+        list.classList.remove("open"); box.setAttribute("aria-expanded", "false");
+      });
+    }
+    const g = document.getElementById("gender");
+    wire(g, document.getElementById("gender-list"), "mousedown", (v) => { g.value = v; });
+    const a = document.getElementById("auth");
+    wire(a, document.getElementById("auth-list"), "click", (v) => { a.textContent = v; });
+    const d = document.getElementById("disability");
+    wire(d, document.getElementById("dis-list"), "mousedown", (v) => { d.value = v; });
+    const e = document.getElementById("ethnic");
+    wire(e, document.getElementById("eth-list"), "mousedown", (v) => { e.value = v; });
+    const k = document.getElementById("consent");
+    // Answering consent "Yes" unlocks the two diversity questions (like SAP SuccessFactors).
+    wire(k, document.getElementById("consent-list"), "mousedown", (v) => { k.value = v; e.disabled = d.disabled = v !== "Yes"; });
+    const c = document.getElementById("city"), cl = document.getElementById("city-list");
+    const CITIES = ["Hyderabad", "Bengaluru", "Pune", "Mumbai"];
+    c.addEventListener("input", () => {
+      cl.innerHTML = CITIES.filter((x) => x.toLowerCase().startsWith(c.value.toLowerCase()) && c.value)
+        .map((x) => `<li role="option">${x}</li>`).join("");
+      cl.classList.toggle("open", cl.children.length > 0);
+    });
+    wire(c, cl, "focus", (v) => { c.value = v; });
+  </script>
+</body>
+</html>

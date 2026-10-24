@@ -1,0 +1,107 @@
+:root {
+  --border: #d0d7de;
+  --muted: #57606a;
+  --accent: #0969da;
+  --ok: #1a7f37;
+  --warn: #9a6700;
+  --err: #cf222e;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  background: #f6f8fa;
+  color: #1f2328;
+}
+
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 24px;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+
+.toolbar h1 { font-size: 18px; margin: 0; }
+.actions { margin-left: auto; display: flex; gap: 8px; }
+
+.status { font-size: 13px; color: var(--muted); }
+.status.ok { color: var(--ok); }
+.status.warn { color: var(--warn); }
+.status.err { color: var(--err); }
+
+button {
+  font: inherit;
+  padding: 5px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #f6f8fa;
+  cursor: pointer;
+}
+button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+button.small { padding: 2px 8px; font-size: 12px; }
+
+main { max-width: 900px; margin: 0 auto; padding: 16px 24px 64px; }
+.note { color: var(--muted); font-size: 13px; }
+
+/* One collapsible <details> block per top-level section. */
+details.section {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  padding: 0 16px;
+}
+details.section > summary {
+  font-weight: 600;
+  padding: 12px 0;
+  cursor: pointer;
+}
+details.section[open] { padding-bottom: 16px; }
+
+fieldset {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin: 8px 0;
+  padding: 8px 12px 12px;
+}
+legend { font-weight: 600; font-size: 14px; padding: 0 4px; }
+
+/* Fields flow into a two-column grid; textareas span both columns. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 10px 16px;
+}
+.field { display: flex; flex-direction: column; gap: 3px; font-size: 13px; }
+.field.wide { grid-column: 1 / -1; }
+.field .hint { color: var(--muted); font-size: 11px; }
+
+input, select, textarea {
+  font: inherit;
+  font-size: 14px;
+  padding: 5px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #fff;
+}
+textarea { min-height: 60px; resize: vertical; }
+
+.item-header { display: flex; align-items: center; justify-content: space-between; }
+
+.resume-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+}
+.resume-card .hint { color: var(--muted); font-size: 13px; margin-top: 2px; }

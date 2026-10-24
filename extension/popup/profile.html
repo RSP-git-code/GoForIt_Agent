@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GoForIt: Profile</title>
+  <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+  <header class="toolbar">
+    <h1>GoForIt profile</h1>
+    <span id="status" class="status"></span>
+    <div class="actions">
+      <button id="import-btn" type="button">Import JSON</button>
+      <button id="export-btn" type="button">Export JSON</button>
+      <button id="save-btn" type="button" class="primary">Save</button>
+    </div>
+    <!-- Hidden file picker; the "Import JSON" button opens it. -->
+    <input id="import-file" type="file" accept=".json,application/json" hidden>
+  </header>
+
+  <main>
+    <p class="note">Your profile is stored only on this computer (chrome.storage.local). Leave a field blank if it doesn't apply. GoForIt never invents values.</p>
+    <!-- Resume file: stored separately from the profile JSON. -->
+    <section class="resume-card">
+      <div>
+        <strong>Resume file</strong>
+        <div id="resume-status" class="hint">No resume saved.</div>
+      </div>
+      <div class="actions">
+        <button id="resume-pick" type="button">Choose resume…</button>
+        <button id="resume-remove" type="button" hidden>Remove</button>
+      </div>
+      <input id="resume-file" type="file" accept=".pdf,.doc,.docx,application/pdf" hidden>
+    </section>
+
+    <!-- profile.js builds all the sections inside this form. -->
+    <form id="profile-form" autocomplete="off"></form>
+  </main>
+
+  <!-- MV3 extensions block inline <script> code, so all JS lives in files.
+       Order matters: later scripts use globals defined by earlier ones. -->
+  <script src="../shared/profile-schema.js"></script>
+  <script src="../shared/storage.js"></script>
+  <script src="profile.js"></script>
+</body>
+</html>

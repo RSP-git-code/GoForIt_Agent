@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Workday-style education entry</title>
+<style>[role="listbox"] { border: 1px solid #ccc; max-width: 300px; } [role="option"] { padding: 4px; cursor: pointer; }</style></head>
+<body>
+  <!-- Rebuilt from a Workday education section (2026-10-22): the two "Year" boxes say which year only
+       in their ids (firstYearAttended / lastYearAttended), and Field of Study is a searchable picker
+       that searches only on Enter and whose list says "Computer Science", not the profile's "Computer Science and Engineering".
+       Expected: 2023 / 2027 years (the sample profile), Field of Study = Computer Science. -->
+  <form id="f" onsubmit="window.__goforitSubmitted = true; return false;">
+    <h3>Education</h3>
+    <label for="school">School or University</label><input id="school">
+    <label for="study">Field of Study</label>
+    <input id="study" role="combobox" aria-autocomplete="list" aria-controls="study-list" autocomplete="off">
+    <div id="study-list" role="listbox" hidden></div>
+    <div><span>From</span>
+      <label for="education-832--firstYearAttended-dateSectionYear-input">Year</label>
+      <input id="education-832--firstYearAttended-dateSectionYear-input" inputmode="numeric"></div>
+    <div><span>To (Actual or Expected)</span>
+      <label for="education-832--lastYearAttended-dateSectionYear-input">Year</label>
+      <input id="education-832--lastYearAttended-dateSectionYear-input" inputmode="numeric"></div>
+    <button type="submit">Save and Continue</button>
+  </form>
+  <script>
+    const FIELDS = ["Computer Engineering", "Computer Science", "Computer Information Systems", "Electrical Engineering"];
+    const box = document.getElementById("study"), list = document.getElementById("study-list");
+    box.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter") return; // like Workday: the list appears only after Enter
+      const q = box.value.trim().toLowerCase();
+      list.innerHTML = "";
+      for (const f of FIELDS.filter((f) => q && f.toLowerCase().includes(q))) {
+        const o = document.createElement("div");
+        o.setAttribute("role", "option");
+        o.textContent = f;
+        o.addEventListener("click", () => { box.value = f; window.__study = f; list.hidden = true; });
+        list.append(o);
+      }
+      list.hidden = !list.children.length;
+    });
+  </script>
+</body>
+</html>

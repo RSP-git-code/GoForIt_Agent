@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Offline copy of a classic Greenhouse job board layout
+       (boards.greenhouse.io): #app_body > #content (job description) and
+       form#application_form with div.field blocks. Company and job are made up. -->
+  <title>Job Application for Machine Learning Intern at Acme Analytics</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; color: #333; }
+    #app_body { max-width: 760px; margin: 0 auto; padding: 24px; }
+    .app-title { font-size: 26px; color: #000; }
+    .company-name { color: #b00; }
+    .field { margin-bottom: 16px; }
+    .field label { display: block; font-weight: bold; margin-bottom: 4px; }
+    .asterisk { color: #b00; }
+    .field input[type=text], .field select, .field textarea { width: 100%; padding: 6px; font-size: 14px; box-sizing: border-box; }
+    #resume_fieldset { border: 1px dashed #aaa; padding: 12px; }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    #submit_app { background: #3b8; color: #fff; padding: 10px 24px; border: none; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <div id="app_body">
+    <div id="header">
+      <h1 class="app-title">Machine Learning Intern</h1>
+      <span class="company-name">at Acme Analytics</span>
+      <div class="location">Hyderabad, India</div>
+    </div>
+
+    <div id="content">
+      <p><strong>About the role</strong></p>
+      <p>Acme Analytics is looking for a Machine Learning Intern to help build NLP and recommendation models for our retail analytics platform.</p>
+      <p><strong>What you'll do</strong></p>
+      <ul>
+        <li>Train and evaluate classification models using Python, scikit-learn and PyTorch</li>
+        <li>Build data pipelines with Pandas and SQL</li>
+        <li>Deploy models behind REST APIs (FastAPI or Django)</li>
+      </ul>
+      <p><strong>Requirements</strong></p>
+      <ul>
+        <li>Pursuing a B.Tech/B.E. in Computer Science or related field, graduating 2027</li>
+        <li>Strong Python and ML fundamentals; experience with LLMs or RAG is a plus</li>
+      </ul>
+    </div>
+
+    <form id="application_form" action="https://boards.greenhouse.io/acme/jobs/123/applications" method="post" enctype="multipart/form-data">
+      <h2>Apply for this Job</h2>
+
+      <div class="field">
+        <label for="first_name">First Name <span class="asterisk">*</span></label>
+        <input type="text" id="first_name" name="job_application[first_name]" aria-required="true">
+      </div>
+
+      <div class="field">
+        <label for="last_name">Last Name <span class="asterisk">*</span></label>
+        <input type="text" id="last_name" name="job_application[last_name]" aria-required="true">
+      </div>
+
+      <div class="field">
+        <label for="email">Email <span class="asterisk">*</span></label>
+        <input type="text" id="email" name="job_application[email]" aria-required="true">
+      </div>
+
+      <div class="field">
+        <label for="phone">Phone <span class="asterisk">*</span></label>
+        <input type="text" id="phone" name="job_application[phone]" aria-required="true">
+      </div>
+
+      <div class="field" id="resume_fieldset">
+        <label>Resume/CV <span class="asterisk">*</span></label>
+        <button type="button" class="attach">Attach</button>
+        <button type="button" class="dropbox">Dropbox</button>
+        <input type="file" id="resume" name="job_application[resume]" class="visually-hidden" aria-required="true">
+      </div>
+
+      <div class="field">
+        <label for="job_application_answers_attributes_0_text_value">LinkedIn Profile</label>
+        <input type="text" id="job_application_answers_attributes_0_text_value" name="job_application[answers_attributes][0][text_value]">
+      </div>
+
+      <div class="field">
+        <label for="job_application_answers_attributes_1_text_value">Website</label>
+        <input type="text" id="job_application_answers_attributes_1_text_value" name="job_application[answers_attributes][1][text_value]">
+      </div>
+
+      <div class="field">
+        <label for="job_application_answers_attributes_2_boolean_value">Are you legally authorized to work in India? <span class="asterisk">*</span></label>
+        <select id="job_application_answers_attributes_2_boolean_value" name="job_application[answers_attributes][2][boolean_value]" aria-required="true">
+          <option value="">--</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="job_application_answers_attributes_3_boolean_value">Will you now or in the future require sponsorship for employment visa status? <span class="asterisk">*</span></label>
+        <select id="job_application_answers_attributes_3_boolean_value" name="job_application[answers_attributes][3][boolean_value]" aria-required="true">
+          <option value="">--</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="job_application_answers_attributes_4_text_value">Expected graduation year</label>
+        <input type="text" id="job_application_answers_attributes_4_text_value" name="job_application[answers_attributes][4][text_value]">
+      </div>
+
+      <div class="field">
+        <label for="education_degree">Degree</label>
+        <select id="education_degree" name="job_application[educations][][degree_id]">
+          <option value="">Select a Degree</option>
+          <option value="1">High School</option>
+          <option value="2">Associate's Degree</option>
+          <option value="3">Bachelor's Degree</option>
+          <option value="4">Master's Degree</option>
+          <option value="5">Doctorate</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="education_discipline">Discipline</label>
+        <select id="education_discipline" name="job_application[educations][][discipline_id]">
+          <option value="">Select a Discipline</option>
+          <option value="10">Computer Science</option>
+          <option value="11">Electrical Engineering</option>
+          <option value="12">Mathematics</option>
+          <option value="13">Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="job_application_answers_attributes_5_text_value">How did you hear about this job?</label>
+        <select id="job_application_answers_attributes_5_text_value" name="job_application[answers_attributes][5][text_value]">
+          <option value="">--</option>
+          <option>LinkedIn</option>
+          <option>Referral</option>
+          <option>Company website</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="job_application_answers_attributes_6_text_value">Why are you interested in this internship at Acme Analytics? <span class="asterisk">*</span></label>
+        <textarea id="job_application_answers_attributes_6_text_value" name="job_application[answers_attributes][6][text_value]" rows="4" aria-required="true"></textarea>
+      </div>
+
+      <h3>U.S. Equal Employment Opportunity Information</h3>
+      <div class="field">
+        <label for="job_application_gender">Gender</label>
+        <select id="job_application_gender" name="job_application[gender]">
+          <option value="">Please select</option>
+          <option value="1">Male</option>
+          <option value="2">Female</option>
+          <option value="3">Decline To Self Identify</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>
+          <input type="checkbox" name="job_application[data_compliance][gdpr_processing_consent_given]" value="1">
+          I consent to Acme Analytics processing my personal data for recruitment purposes.
+        </label>
+      </div>
+
+      <input type="submit" id="submit_app" value="Submit Application" data-tripwire>
+    </form>
+  </div>
+  <script src="tripwire.js"></script>
+</body>
+</html>

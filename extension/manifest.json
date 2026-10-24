@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "GoForIt",
+  "version": "0.0.1",
+  "description": "Prefills job and campus-placement forms from your local profile. Never submits.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "GoForIt (Alt+Shift+F fills this page)",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    }
+  },
+  "commands": {
+    "fill-page": {
+      "suggested_key": {
+        "default": "Alt+Shift+F"
+      },
+      "description": "Fill this page"
+    },
+    "ask-octo": {
+      "suggested_key": {
+        "default": "Alt+Shift+O"
+      },
+      "description": "Ask Agent Octo about the selected text"
+    }
+  },
+  "options_page": "popup/profile.html",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "sidePanel",
+    "contextMenus"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:8000/*"
+  ],
+  "side_panel": {
+    "default_path": "sidepanel/octo.html"
+  }
+}

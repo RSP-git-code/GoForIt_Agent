@@ -1,0 +1,40 @@
+body {
+  width: 260px;
+  font-family: system-ui, sans-serif;
+  margin: 12px;
+}
+
+h1 {
+  font-size: 18px;
+  margin: 0 0 8px;
+}
+
+button.link {
+  border: none;
+  background: none;
+  padding: 0;
+  color: #0969da;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+button.primary {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background: #1a7f37;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.small { font-size: 12px; color: #57606a; margin: 4px 0 10px; min-height: 1em; }
+
+.ok { color: #1a7f37; font-weight: 600; }
+.down { color: #cf222e; font-weight: 600; }
+
+.toggle { display: flex; align-items: center; gap: 6px; font-size: 13px; margin: 0 0 12px; }

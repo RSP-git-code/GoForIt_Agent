@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Boxes and links that reload the page</title></head>
+<body>
+  <!-- Old-style portals (seen on HCLTech, 2026-10-20: the page reloaded during Fill).
+       1. A dropdown that posts the page back as soon as it changes (ASP.NET __doPostBack).
+       2. "+ Add Education" written as <a href="">: clicking it reloads the same page.
+       GoForIt must fill the normal box, leave both traps alone, and never reload or submit. -->
+  <script>function __doPostBack() { window.__goforitSubmitted = true; }</script>
+  <form id="f" onsubmit="window.__goforitSubmitted = true; return false;">
+    <label for="first">First Name</label><input id="first" name="first">
+    <label for="gender">Gender</label>
+    <select id="gender" name="gender" onchange="__doPostBack('gender', '')">
+      <option value="">Select</option><option>Male</option><option>Female</option>
+    </select>
+    <a href="" onclick="window.__addClicked = (window.__addClicked || 0) + 1; return false;">+ Add Education</a>
+  </form>
+</body>
+</html>

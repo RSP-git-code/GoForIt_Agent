@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Marks table (HCLTech-style academic details)</title></head>
+<body>
+  <!-- Rebuilt from a screenshot of HCLTech's campus form (2026-10-20), no page code copied.
+       Every box has a useless hidden name (aria-label "text field" / "select option"), like HCLTech's.
+       The questions are COLUMN headings and the row's first cell says which exam ("10th").
+       Expected: school, board, year, marking scheme and percentage filled per row; the school
+       roll number is not in the profile, so it stays empty (flagged). Nothing is submitted. -->
+  <form id="f" onsubmit="window.__goforitSubmitted = true; return false;">
+    <h3>10TH ACADEMIC DETAILS</h3>
+    <table>
+      <tr><th></th><th>School Name *</th><th>Name of Board *</th><th>Year of Passing *</th>
+          <th>Marking Scheme *</th><th>Obtained Percentage *</th><th>Roll Number *</th></tr>
+      <tr>
+        <td>10th</td>
+        <td><input aria-label="text field" name="s10"></td>
+        <td><select aria-label="select option" name="b10"><option value="">Select</option><option>CBSE</option><option>ICSE</option><option>State Board</option></select></td>
+        <td><input aria-label="text field" name="y10" placeholder="YYYY"></td>
+        <td><select aria-label="select option" name="m10"><option value="">Select</option><option>Percentage</option><option>CGPA</option></select></td>
+        <td><input aria-label="text field" name="p10"></td>
+        <td><input aria-label="text field" name="r10"></td>
+      </tr>
+    </table>
+    <h3>12TH ACADEMIC DETAILS</h3>
+    <table>
+      <thead><tr><th></th><th>School Name *</th><th>Year of Passing *</th><th>Obtained Percentage *</th></tr></thead>
+      <tbody><tr><td>12th</td><td><input aria-label="text field" name="s12"></td><td><input aria-label="text field" name="y12" placeholder="YYYY"></td><td><input aria-label="text field" name="p12"></td></tr></tbody>
+    </table>
+    <button type="submit">Save &amp; Next</button>
+  </form>
+</body>
+</html>
