@@ -6,18 +6,18 @@
     "last_name": "Forger",
     "email": "anya.forger@example.com",
     "college_email": "anya.forger@student.example.edu",
-    "phone": "+91 9000012345",
+    "phone": "+49 030 00777",
     "alternate_phone": "",
     "date_of_birth": "2004-04-01",
     "gender": "Female",
     "category": "General",
     "nationality": "Indian",
-    "current_city": "Bengaluru",
-    "current_state": "Karnataka",
-    "permanent_city": "Bengaluru",
-    "permanent_state": "Karnataka",
-    "permanent_address": "12 Example Street, Bengaluru",
-    "pincode": "560001"
+    "current_city": "Berlint",
+    "current_state": "Ostania",
+    "permanent_city": "Berlint",
+    "permanent_state": "Ostania",
+    "permanent_address": "Example Street, Berlint, Ostania",
+    "pincode": ""
   },
   "links": {
     "linkedin": "https://www.linkedin.com/in/example-anya-forger",
@@ -31,24 +31,27 @@
     "degree": {
       "name": "B.Tech",
       "branch": "Computer Science and Engineering",
-      "specialization": "AI and ML",
-      "branch_full": "Computer Science and Engineering with Specialization in AI and ML",
+      "specialization": "Artificial Intelligence and Machine Learning",
+      "branch_full": "Computer Science and Engineering with Specialization in Artificial Intelligence and Machine Learning",
       "college": "Eden Institute of Technology",
-      "college_aliases": ["EIT", "Eden Tech"],
+      "college_aliases": [
+        "EIT",
+        "Eden Tech"
+      ],
       "university": "Eden University",
       "registration_number": "23BCE0001",
       "start_year": "2023",
       "start_month": "07",
       "graduation_year": "2027",
       "graduation_month": "05",
-      "cgpa": "8.7",
-      "cgpa_scale": "10",
+      "cgpa": "2.50",
+      "cgpa_scale": "4",
       "percentage_equivalent": "",
       "active_backlogs": 0,
       "backlog_history": 0
     },
     "class_12": {
-      "school": "Example Junior College",
+      "school": "Eden Academy",
       "board": "Central Board of Secondary Education (CBSE)",
       "stream": "PCM",
       "start_year": "2021",
@@ -60,7 +63,7 @@
       "roll_number": "12345678"
     },
     "class_10": {
-      "school": "Example Public School",
+      "school": "Eden Academy",
       "board": "Central Board of Secondary Education (CBSE)",
       "start_year": "2020",
       "start_month": "04",
@@ -80,23 +83,50 @@
     }
   },
   "skills": {
-    "languages": ["Python", "Java", "SQL"],
-    "ml_ai": ["scikit-learn", "PyTorch", "LangChain", "RAG"],
-    "web": ["FastAPI", "React"],
-    "databases": ["PostgreSQL", "MongoDB"],
-    "tools": ["Git", "Docker"]
+    "languages": [
+      "Python",
+      "Java",
+      "SQL"
+    ],
+    "ml_ai": [
+      "scikit-learn",
+      "PyTorch",
+      "LangChain",
+      "RAG"
+    ],
+    "web": [
+      "FastAPI",
+      "React"
+    ],
+    "databases": [
+      "PostgreSQL",
+      "MongoDB"
+    ],
+    "tools": [
+      "Git",
+      "Docker"
+    ]
   },
   "projects": [
     {
       "title": "Peanut Price Predictor - demand forecasting",
       "summary": "Forecast weekly snack demand from sales history with gradient boosting; served through a FastAPI endpoint.",
-      "tech": ["Python", "scikit-learn", "FastAPI"],
+      "tech": [
+        "Python",
+        "scikit-learn",
+        "FastAPI"
+      ],
       "link": "https://github.com/example-anya-forger/peanut-predictor"
     },
     {
       "title": "Study Buddy - RAG over lecture notes",
       "summary": "Ask questions about course PDFs; LangChain retrieval with source citations.",
-      "tech": ["Python", "LangChain", "RAG", "PostgreSQL"],
+      "tech": [
+        "Python",
+        "LangChain",
+        "RAG",
+        "PostgreSQL"
+      ],
       "link": "https://github.com/example-anya-forger/study-buddy"
     }
   ],
@@ -110,7 +140,11 @@
     }
   ],
   "certifications": [
-    { "name": "Example Cloud Foundations", "issuer": "Example Academy", "date": "2025-03" }
+    {
+      "name": "Example Cloud Foundations",
+      "issuer": "Example Academy",
+      "date": "2025-03"
+    }
   ],
   "achievements": [
     "Finalist, Example National Hackathon 2025",
@@ -121,16 +155,28 @@
   ],
   "memberships": [
     "Student Member, Example Computing Society",
-    "AI Club, Eden Institute of Technology"
+    "Core member, college AI Club"
   ],
-  "languages_spoken": ["English (Fluent)", "Hindi (Fluent)"],
+  "languages_spoken": [
+    "English (Fluent)",
+    "Hindi (Fluent)"
+  ],
   "relatives": [],
-  "diversity": { "consent": "", "ethnicity": "", "disability": "", "veteran": "" },
+  "diversity": {
+    "consent": "",
+    "ethnicity": "",
+    "disability": "",
+    "veteran": ""
+  },
   "preferences": {
     "notice_period": "0",
     "available_from": "",
     "willing_to_relocate": "Yes",
-    "preferred_locations": ["Bengaluru", "Hyderabad", "Pune"],
+    "preferred_locations": [
+      "Bengaluru",
+      "Hyderabad",
+      "Pune"
+    ],
     "expected_ctc": "",
     "has_job_offer": "No",
     "work_authorization_india": "Yes",
@@ -142,5 +188,8 @@
     "strengths": "",
     "weaknesses": ""
   },
-  "resume_file": { "name": "", "stored": false }
+  "resume_file": {
+    "name": "",
+    "stored": false
+  }
 }
