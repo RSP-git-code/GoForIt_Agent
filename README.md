@@ -112,6 +112,19 @@ Daily scanning of job notifications received through LinkedIn and Indeed, organi
 
 <img width="100%" alt="Job Alert Scanning Output" src="https://github.com/user-attachments/assets/ace0cae6-0f65-48e5-bed2-d5806ee7c7dd" />
 
+**Five weeks of daily use (25 Sep – 1 Nov 2026):**
+
+| Metric | Count |
+|---|---|
+| Jobs tracked from alert emails | 1,103 (756 LinkedIn · 347 Indeed) |
+| High fit | 180 |
+| Medium fit | 388 |
+| Low fit | 535 |
+| Added to calendar reminders | 592 |
+| Flagged as scam | 6 |
+| Needs more experience | 4 |
+| Expired before applying | 43 |
+
 ### 5. Job-Fit Analysis — Agent Octo
 
 Agent Octo 🐙 evaluates job requirements against the user's profile and provides a job-fit assessment. It encourages the user to apply if the JD requirements and the profile match well (it cheers with pom-poms at a 60%+ match), points out the missing skills with free courses to learn them, and says "skip" when a hard requirement such as a Master's degree isn't met. It works in both a day and a night sea.
