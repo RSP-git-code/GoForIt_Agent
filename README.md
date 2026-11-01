@@ -298,8 +298,9 @@ Users are responsible for reviewing the information and deciding what to submit.
 
 ## Credits & Disclaimer
 
-- **Character:** Anya Forger from *SPY×FAMILY*, created by Tatsuya Endo.
+- **Character:** Anya Forger from *SPY×FAMILY*, created by Tatsuya Endo and published by Shueisha.
 - **Artwork inspiration:** [Pinterest reference](https://www.pinterest.com/pin/614037730490952505/). The illustration used in the demo resume was hand-drawn by me, inspired by this reference.
 - **Demo data:** The resume uses fictional personal, academic, and professional details created solely for demonstration and testing.
 
-*SPY×FAMILY*, its characters, names, and associated intellectual property belong to their respective rights holders. GoForIt is an independent personal project and is not affiliated with, endorsed by, or sponsored by Tatsuya Endo or the rights holders.
+*SPY×FAMILY*, its characters, names, and associated intellectual property belong to their respective rights holders. GoForIt is an independent personal project and is not affiliated with, endorsed by, or sponsored by Tatsuya Endo, Shueisha, or the rights holders.
+
