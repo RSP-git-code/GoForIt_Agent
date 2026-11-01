@@ -127,7 +127,7 @@ Agent Octo 🐙 evaluates job requirements against the user's profile and provid
 
 ### 6. Apply Reminders — Google Calendar
 
-High- and Medium-fit jobs from the alert emails become one "Apply to N jobs" reminder: at 9 AM for jobs that arrived overnight, and about 10 minutes after the 7 PM scan for jobs that came in during the day (popular LinkedIn posts often close within a day). Jobs are grouped into internships and full-time roles, best fit first. One click on ✓ Applied, ✗ Expired, ⏳ Needs experience or ⚑ Scam updates the Excel tracker and the event; ⚑ Scam also hides that company's future jobs.
+High-fit and Medium-fit jobs from the alert emails become one "Apply to N jobs" reminder: at 9 AM for jobs that arrived overnight, and about 10 minutes after the 7 PM scan for jobs that came in during the day (popular LinkedIn posts often close within a day). Jobs are grouped into internships and full-time roles, best fit first. One click on ✓ Applied, ✗ Expired, ⏳ Needs experience or ⚑ Scam updates the Excel tracker and the event; ⚑ Scam also hides that company's future jobs.
 
 <img width="100%" alt="Google Calendar apply reminder" src="docs/screenshots/calendar-reminders.png" />
 
