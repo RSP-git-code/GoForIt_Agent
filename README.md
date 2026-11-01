@@ -249,7 +249,7 @@ pytest
 ## Architecture
 
 The project combines browser-side form interaction with local AI processing and supporting job-alert workflows.
-
+![Architecture Diagram](docs/architecture.png)
 ### Core Components
 
 | Component | Technology |
