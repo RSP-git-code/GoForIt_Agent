@@ -128,7 +128,6 @@ Daily scanning of job notifications received through LinkedIn and Indeed, organi
 ### 5. Job-Fit Analysis — Agent Octo
 
 Agent Octo 🐙 evaluates job requirements against the user's profile and provides a job-fit assessment. It encourages the user to apply if the JD requirements and the profile match well (it cheers with pom-poms at a 60%+ match), points out the missing skills with free courses to learn them, and says "skip" when a hard requirement such as a Master's degree isn't met. It works in both a day and a night sea.
-
 <table>
   <tr>
     <td align="center"><img src="docs/screenshots/octo/octo-idle-light.png" width="260" alt="Octo says hello"><br><b>Hello</b></td>
@@ -142,8 +141,22 @@ Agent Octo 🐙 evaluates job requirements against the user's profile and provid
   </tr>
 </table>
 
+<details><summary><b>🌙 Night mode</b></summary>
 
+<table>
+  <tr>
+    <td align="center"><img src="docs/screenshots/octo/octo-idle-dark.png" width="260" alt="Octo says hello, night sea"><br><b>Hello</b></td>
+    <td align="center"><img src="docs/screenshots/octo/octo-thinking-dark.png" width="260" alt="Octo reading the job, night sea"><br><b>Reading the job</b></td>
+    <td align="center"><img src="docs/screenshots/octo/octo-cheer-dark.png" width="260" alt="Octo cheering with pom-poms, night sea"><br><b>60%+ match: pom-pom cheer</b></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/screenshots/octo/octo-happy-dark.png" width="260" alt="Octo happy, night sea"><br><b>50–59%: apply, brush up</b></td>
+    <td align="center"><img src="docs/screenshots/octo/octo-concerned-dark.png" width="260" alt="Octo concerned, night sea"><br><b>Stretch or skip</b></td>
+    <td></td>
+  </tr>
+</table>
 
+</details>
 
 ### 6. Apply Reminders — Google Calendar
 
