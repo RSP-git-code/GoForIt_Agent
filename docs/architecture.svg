@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1560 820" width="1560" height="820" font-family="Lato, 'Segoe UI', Helvetica, Arial, sans-serif">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#444"/></marker><marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5f8b"/></marker></defs>
+<rect width="1560" height="820" fill="#fff"/>
+<text x="20" y="32" font-size="19" fill="#222" font-weight="700" text-anchor="start">1 · Fill this page</text>
+<text x="185" y="32" font-size="15" fill="#666" font-weight="400" text-anchor="start">Chrome extension (plain JS) + LangGraph agent pipeline</text>
+<rect x="322" y="52" width="868" height="400" rx="8" fill="#f6f4fd" stroke="#1f5f8b" stroke-width="1.5" stroke-dasharray="7 5"/>
+<text x="338" y="73" font-size="13" fill="#1f5f8b" font-weight="700" text-anchor="start">Backend · FastAPI + LangGraph · 127.0.0.1 only (nothing leaves the laptop)</text>
+<rect x="20" y="95" width="120" height="78" rx="3" fill="#cfcfcf" stroke="#555" stroke-width="1"/>
+<text x="80.0" y="120.2" text-anchor="middle" font-size="15" font-weight="700" fill="#222">Form page</text>
+<text x="80.0" y="139.2" text-anchor="middle" font-size="13" font-weight="400" fill="#222">you opened it</text>
+<text x="80.0" y="158.2" text-anchor="middle" font-size="13" font-weight="400" fill="#222">Workday, Oracle…</text>
+<rect x="168" y="95" width="130" height="78" rx="3" fill="#64b5f6" stroke="#555" stroke-width="1"/>
+<text x="233.0" y="120.2" text-anchor="middle" font-size="15" font-weight="700" fill="#0d2a45">Extract fields</text>
+<text x="233.0" y="139.2" text-anchor="middle" font-size="13" font-weight="400" fill="#0d2a45">content script</text>
+<text x="233.0" y="158.2" text-anchor="middle" font-size="13" font-weight="400" fill="#0d2a45">labels, options</text>
+<rect x="342" y="95" width="150" height="78" rx="3" fill="#cdbbf2" stroke="#555" stroke-width="1"/>
+<text x="417.0" y="120.2" text-anchor="middle" font-size="15" font-weight="700" fill="#2a1a52">Page Analyzer</text>
+<text x="417.0" y="139.2" text-anchor="middle" font-size="13" font-weight="400" fill="#2a1a52">what each field</text>
+<text x="417.0" y="158.2" text-anchor="middle" font-size="13" font-weight="400" fill="#2a1a52">is asking for</text>
+<rect x="522" y="95" width="150" height="78" rx="3" fill="#cdbbf2" stroke="#555" stroke-width="1"/>
+<text x="597.0" y="120.2" text-anchor="middle" font-size="15" font-weight="700" fill="#2a1a52">Mapper</text>
+<text x="597.0" y="139.2" text-anchor="middle" font-size="13" font-weight="400" fill="#2a1a52">profile → values</text>
+<text x="597.0" y="158.2" text-anchor="middle" font-size="13" font-weight="400" fill="#2a1a52">CGPA, dates, options</text>
+<polygon points="752,90.0 810,134.0 752,178.0 694,134.0" fill="#fff" stroke="#555"/>
+<text x="752" y="131.0" font-size="13" fill="#222" font-weight="700" text-anchor="middle">free-text</text>
+<text x="752" y="148.0" font-size="13" fill="#222" font-weight="700" text-anchor="middle">questions?</text>
+<rect x="1030" y="95" width="140" height="78" rx="3" fill="#cdbbf2" stroke="#555" stroke-width="1"/>
+<text x="1100.0" y="129.8" text-anchor="middle" font-size="15" font-weight="700" fill="#2a1a52">Assemble</text>
+<text x="1100.0" y="148.8" text-anchor="middle" font-size="13" font-weight="400" fill="#2a1a52">one fill plan</text>
+<rect x="1218" y="95" width="150" height="78" rx="3" fill="#64b5f6" stroke="#555" stroke-width="1"/>
+<text x="1293.0" y="120.2" text-anchor="middle" font-size="15" font-weight="700" fill="#0d2a45">Apply in page</text>
+<text x="1293.0" y="139.2" text-anchor="middle" font-size="13" font-weight="400" fill="#0d2a45">green · yellow · red</text>
+<text x="1293.0" y="158.2" text-anchor="middle" font-size="13" font-weight="400" fill="#0d2a45">+ summary panel</text>
+<rect x="1396" y="95" width="144" height="78" rx="3" fill="#fff8d6" stroke="#8b1a1a" stroke-width="3"/>
+<text x="1468.0" y="120.2" text-anchor="middle" font-size="15" font-weight="700" fill="#8b1a1a">You review</text>
+<text x="1468.0" y="139.2" text-anchor="middle" font-size="13" font-weight="400" fill="#8b1a1a">&amp; submit</text>
+<text x="1468.0" y="158.2" text-anchor="middle" font-size="13" font-weight="400" fill="#8b1a1a">(OTP, CAPTCHA too)</text>
+<path d="M140,134.0 L166,134.0" fill="none" stroke="#444" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M298,134.0 L340,134.0" fill="none" stroke="#444" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M492,134.0 L520,134.0" fill="none" stroke="#444" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M672,134.0 L692,134.0" fill="none" stroke="#444" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M810,134.0 L1028,134.0" fill="none" stroke="#444" stroke-width="2" marker-end="url(#ah)"/>
+<text x="905" y="126.0" font-size="13" fill="#444" font-weight="700" text-anchor="middle">no</text>
+<path d="M1170,134.0 L1216,134.0" fill="none" stroke="#444" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M1368,134.0 L1394,134.0" fill="none" stroke="#444" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="682" y="232" width="140" height="72" rx="3" fill="#cdbbf2" stroke="#555" stroke-width="1"/>
+<text x="752.0" y="254.2" text-anchor="middle" font-size="15" font-weight="700" fill="#2a1a52">Matcher</text>
+<text x="752.0" y="273.2" text-anchor="middle" font-size="13" font-weight="400" fill="#2a1a52">job fit + picks</text>
+<text x="752.0" y="292.2" text-anchor="middle" font-size="13" font-weight="400" fill="#2a1a52">your projects</text>
+<rect x="852" y="232" width="140" height="72" rx="3" fill="#cdbbf2" stroke="#555" stroke-width="1"/>
+<text x="922.0" y="263.8" text-anchor="middle" font-size="15" font-weight="700" fill="#2a1a52">Drafter</text>
+<text x="922.0" y="282.8" text-anchor="middle" font-size="13" font-weight="400" fill="#2a1a52">writes the answer</text>
+<rect x="1030" y="232" width="140" height="72" rx="3" fill="#cdbbf2" stroke="#555" stroke-width="1"/>
+<text x="1100.0" y="254.2" text-anchor="middle" font-size="15" font-weight="700" fill="#2a1a52">Verifier</text>
+<text x="1100.0" y="273.2" text-anchor="middle" font-size="13" font-weight="400" fill="#2a1a52">only your facts?</text>
+<text x="1100.0" y="292.2" text-anchor="middle" font-size="13" font-weight="400" fill="#2a1a52">length ok?</text>
+<path d="M752,178.0 L752,230" fill="none" stroke="#444" stroke-width="2" marker-end="url(#ah)"/>
+<text x="760" y="200.0" font-size="13" fill="#444" font-weight="700" text-anchor="start">yes</text>
+<path d="M822,268.0 L850,268.0" fill="none" stroke="#444" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M992,268.0 L1028,268.0" fill="none" stroke="#444" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M1100,232 L1100,175" fill="none" stroke="#444" stroke-width="2" marker-end="url(#ah)"/>
+<text x="1108" y="214" font-size="13" fill="#444" font-weight="700" text-anchor="start">pass</text>
+<path d="M1080,304 L1080,326 L922,326 L922,306" fill="none" stroke="#8b1a1a" stroke-width="2" marker-end="url(#ah-blue)"/>
+<text x="1001" y="344" font-size="12" fill="#8b1a1a" font-weight="700" text-anchor="middle">rejected → retry (max 2), then flagged red</text>
+<rect x="342" y="296" width="150" height="70" rx="3" fill="#f57c00" stroke="#555" stroke-width="1"/>
+<text x="417.0" y="317.9" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Field classifier</text>
+<text x="417.0" y="335.9" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">MiniLM, trained; on</text>
+<text x="417.0" y="353.9" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">once it beats rules</text>
+<path d="M417,300 L417,175" fill="none" stroke="#444" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#ah)"/>
+<text x="425" y="222" font-size="12" fill="#666" font-weight="400" text-anchor="start" font-style="italic">rules first,</text>
+<text x="425" y="237" font-size="12" fill="#666" font-weight="400" text-anchor="start" font-style="italic">model second</text>
+<rect x="852" y="382" width="318" height="58" rx="3" fill="#f57c00" stroke="#555" stroke-width="1"/>
+<text x="1011.0" y="406.9" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Small LLM · Qwen3 1.7B · Ollama (local)</text>
+<text x="1011.0" y="424.9" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">fine-tune in progress</text>
+<path d="M875,382 L875,306" fill="none" stroke="#444" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#ah)"/>
+<path d="M1150,382 L1150,306" fill="none" stroke="#444" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#ah)"/>
+<text x="682" y="410" font-size="12" fill="#666" font-weight="400" text-anchor="start" font-style="italic">Ollama offline? drafts are</text>
+<text x="682" y="425" font-size="12" fill="#666" font-weight="400" text-anchor="start" font-style="italic">skipped; everything else fills</text>
+<rect x="168" y="300" width="130" height="64" rx="3" fill="#a5d6a7" stroke="#555" stroke-width="1"/>
+<text x="233.0" y="318.9" text-anchor="middle" font-size="14" font-weight="700" fill="#173d1a">Your profile</text>
+<text x="233.0" y="336.9" text-anchor="middle" font-size="12" font-weight="400" fill="#173d1a">chrome.storage</text>
+<text x="233.0" y="354.9" text-anchor="middle" font-size="12" font-weight="400" fill="#173d1a">.local</text>
+<path d="M233,300 L233,175" fill="none" stroke="#444" stroke-width="2" marker-end="url(#ah)"/>
+<text x="240" y="270" font-size="12" fill="#666" font-weight="400" text-anchor="start" font-style="italic">sent with</text>
+<text x="240" y="285" font-size="12" fill="#666" font-weight="400" text-anchor="start" font-style="italic">the fields</text>
+<text x="20" y="500" font-size="19" fill="#222" font-weight="700" text-anchor="start">2 · Agent Octo</text>
+<text x="158" y="500" font-size="15" fill="#666" font-weight="400" text-anchor="start">side-panel chat</text>
+<rect x="20" y="520" width="150" height="76" rx="3" fill="#cfcfcf" stroke="#555" stroke-width="1"/>
+<text x="95.0" y="544.2" text-anchor="middle" font-size="15" font-weight="700" fill="#222">Job description</text>
+<text x="95.0" y="563.2" text-anchor="middle" font-size="13" font-weight="400" fill="#222">pasted, selected</text>
+<text x="95.0" y="582.2" text-anchor="middle" font-size="13" font-weight="400" fill="#222">or a PDF</text>
+<rect x="200" y="520" width="190" height="76" rx="3" fill="#cdbbf2" stroke="#555" stroke-width="1"/>
+<text x="295.0" y="544.2" text-anchor="middle" font-size="15" font-weight="700" fill="#2a1a52">Coach agent</text>
+<text x="295.0" y="563.2" text-anchor="middle" font-size="13" font-weight="400" fill="#2a1a52">required vs nice-to-have</text>
+<text x="295.0" y="582.2" text-anchor="middle" font-size="13" font-weight="400" fill="#2a1a52">skills · degree, CGPA</text>
+<rect x="420" y="520" width="170" height="76" rx="3" fill="#b3e5fc" stroke="#555" stroke-width="1"/>
+<text x="505.0" y="544.2" text-anchor="middle" font-size="15" font-weight="700" fill="#0d2a45">Fit % + verdict</text>
+<text x="505.0" y="563.2" text-anchor="middle" font-size="13" font-weight="400" fill="#0d2a45">Apply · Stretch · Skip</text>
+<text x="505.0" y="582.2" text-anchor="middle" font-size="13" font-weight="400" fill="#0d2a45">cheers at 60%+</text>
+<rect x="620" y="520" width="190" height="76" rx="3" fill="#b3e5fc" stroke="#555" stroke-width="1"/>
+<text x="715.0" y="544.2" text-anchor="middle" font-size="15" font-weight="700" fill="#0d2a45">Missing skills</text>
+<text x="715.0" y="563.2" text-anchor="middle" font-size="13" font-weight="400" fill="#0d2a45">effort + free courses</text>
+<text x="715.0" y="582.2" text-anchor="middle" font-size="13" font-weight="400" fill="#0d2a45">+ how to show it</text>
+<rect x="840" y="520" width="170" height="76" rx="3" fill="#f57c00" stroke="#555" stroke-width="1"/>
+<text x="925.0" y="544.9" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Local LLM</text>
+<text x="925.0" y="562.9" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">answers follow-up</text>
+<text x="925.0" y="580.9" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">questions</text>
+<path d="M170,558.0 L198,558.0" fill="none" stroke="#444" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M390,558.0 L418,558.0" fill="none" stroke="#444" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M590,558.0 L618,558.0" fill="none" stroke="#444" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M810,558.0 L838,558.0" fill="none" stroke="#444" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#ah)"/>
+<text x="20" y="660" font-size="19" fill="#222" font-weight="700" text-anchor="start">3 · Inbox agent</text>
+<text x="166" y="660" font-size="15" fill="#666" font-weight="400" text-anchor="start">runs at 8:30 AM and 7 PM (Windows task)</text>
+<rect x="20" y="680" width="170" height="76" rx="3" fill="#cfcfcf" stroke="#555" stroke-width="1"/>
+<text x="105.0" y="704.2" text-anchor="middle" font-size="15" font-weight="700" fill="#222">Gmail (read-only)</text>
+<text x="105.0" y="723.2" text-anchor="middle" font-size="13" font-weight="400" fill="#222">LinkedIn &amp; Indeed</text>
+<text x="105.0" y="742.2" text-anchor="middle" font-size="13" font-weight="400" fill="#222">job-alert emails</text>
+<rect x="220" y="680" width="200" height="76" rx="3" fill="#cdbbf2" stroke="#555" stroke-width="1"/>
+<text x="320.0" y="704.2" text-anchor="middle" font-size="15" font-weight="700" fill="#2a1a52">Inbox agent</text>
+<text x="320.0" y="723.2" text-anchor="middle" font-size="13" font-weight="400" fill="#2a1a52">1 alert → 1 row per job</text>
+<text x="320.0" y="742.2" text-anchor="middle" font-size="13" font-weight="400" fill="#2a1a52">fit High · Medium · Low</text>
+<rect x="450" y="680" width="150" height="76" rx="3" fill="#a5d6a7" stroke="#555" stroke-width="1"/>
+<text x="525.0" y="704.2" text-anchor="middle" font-size="15" font-weight="700" fill="#173d1a">Excel tracker</text>
+<text x="525.0" y="723.2" text-anchor="middle" font-size="13" font-weight="400" fill="#173d1a">local .xlsx</text>
+<text x="525.0" y="742.2" text-anchor="middle" font-size="13" font-weight="400" fill="#173d1a">no duplicates</text>
+<rect x="630" y="680" width="190" height="76" rx="3" fill="#b3e5fc" stroke="#555" stroke-width="1"/>
+<text x="725.0" y="704.2" text-anchor="middle" font-size="15" font-weight="700" fill="#0d2a45">Google Calendar</text>
+<text x="725.0" y="723.2" text-anchor="middle" font-size="13" font-weight="400" fill="#0d2a45">&quot;Apply to N jobs&quot;</text>
+<text x="725.0" y="742.2" text-anchor="middle" font-size="13" font-weight="400" fill="#0d2a45">9 AM / same evening</text>
+<rect x="850" y="680" width="160" height="76" rx="3" fill="#fff8d6" stroke="#8b1a1a" stroke-width="3"/>
+<text x="930.0" y="713.8" text-anchor="middle" font-size="15" font-weight="700" fill="#8b1a1a">You apply</text>
+<text x="930.0" y="732.8" text-anchor="middle" font-size="13" font-weight="400" fill="#8b1a1a">✓ Applied · ✗ Expired</text>
+<path d="M190,718.0 L218,718.0" fill="none" stroke="#444" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M420,718.0 L448,718.0" fill="none" stroke="#444" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M600,718.0 L628,718.0" fill="none" stroke="#444" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M820,718.0 L848,718.0" fill="none" stroke="#444" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M930,756 L930,778 L525,778 L525,758" fill="none" stroke="#1f5f8b" stroke-width="2" marker-end="url(#ah-blue)"/>
+<text x="727" y="796" font-size="12" fill="#1f5f8b" font-weight="700" text-anchor="middle">one click updates the tracker (and every repost of that job)</text>
+<rect x="1110" y="510" width="26" height="22" rx="2" fill="#64b5f6" stroke="#555" stroke-width="1"/>
+<text x="1148" y="526" font-size="15" fill="#333" font-weight="400" text-anchor="start">Chrome extension (plain JS, MV3)</text>
+<rect x="1110" y="544" width="26" height="22" rx="2" fill="#cdbbf2" stroke="#555" stroke-width="1"/>
+<text x="1148" y="560" font-size="15" fill="#333" font-weight="400" text-anchor="start">AI agent (LangGraph / Python)</text>
+<rect x="1110" y="578" width="26" height="22" rx="2" fill="#f57c00" stroke="#555" stroke-width="1"/>
+<text x="1148" y="594" font-size="15" fill="#333" font-weight="400" text-anchor="start">Local model on the laptop (no external AI APIs)</text>
+<rect x="1110" y="612" width="26" height="22" rx="2" fill="#a5d6a7" stroke="#555" stroke-width="1"/>
+<text x="1148" y="628" font-size="15" fill="#333" font-weight="400" text-anchor="start">Your data, stays on the laptop</text>
+<rect x="1110" y="646" width="26" height="22" rx="2" fill="#cfcfcf" stroke="#555" stroke-width="1"/>
+<text x="1148" y="662" font-size="15" fill="#333" font-weight="400" text-anchor="start">Input</text>
+<rect x="1110" y="680" width="26" height="22" rx="2" fill="#b3e5fc" stroke="#555" stroke-width="1"/>
+<text x="1148" y="696" font-size="15" fill="#333" font-weight="400" text-anchor="start">Output to you</text>
+<rect x="1110" y="714" width="26" height="22" rx="2" fill="#fff8d6" stroke="#8b1a1a" stroke-width="3"/>
+<text x="1148" y="730" font-size="15" fill="#8b1a1a" font-weight="700" text-anchor="start">Only YOU do this: GoForIt never submits</text>
+<text x="1110" y="762" font-size="13" fill="#555" font-weight="400" text-anchor="start">Never: submits forms, solves CAPTCHA/OTP, or automates</text>
+<text x="1110" y="779" font-size="13" fill="#555" font-weight="400" text-anchor="start">LinkedIn/Indeed (it only reads their alert emails).</text>
+</svg>
