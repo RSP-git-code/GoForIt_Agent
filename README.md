@@ -113,7 +113,6 @@ Daily scanning of job notifications received through LinkedIn and Indeed, organi
 <img width="100%" alt="Job Alert Scanning Output" src="https://github.com/user-attachments/assets/ace0cae6-0f65-48e5-bed2-d5806ee7c7dd" />
 
 ### 5. Job-Fit Analysis — Agent Octo
-### 5. Job-Fit Analysis — Agent Octo
 
 Agent Octo 🐙 evaluates job requirements against the user's profile and provides a job-fit assessment. It encourages the user to apply if the JD requirements and the profile match well (it cheers with pom-poms at a 60%+ match), points out the missing skills with free courses to learn them, and says "skip" when a hard requirement such as a Master's degree isn't met. It works in both a day and a night sea.
 
@@ -126,11 +125,11 @@ Agent Octo 🐙 evaluates job requirements against the user's profile and provid
 
 
 
-### 6. Skill Gap Recommendations
+### 6. Apply Reminders — Google Calendar
 
-Relevant skill gaps and free learning resources are highlighted to help users prepare for suitable opportunities.
+High- and Medium-fit jobs from the alert emails become one "Apply to N jobs" reminder: at 9 AM for jobs that arrived overnight, and about 10 minutes after the 7 PM scan for jobs that came in during the day (popular LinkedIn posts often close within a day). Jobs are grouped into internships and full-time roles, best fit first. One click on ✓ Applied, ✗ Expired, ⏳ Needs experience or ⚑ Scam updates the Excel tracker and the event; ⚑ Scam also hides that company's future jobs.
 
-<!-- Paste your Skill Gap Recommendations screenshot here -->
+<img width="100%" alt="Google Calendar apply reminder" src="docs/screenshots/calendar-reminders.png" />
 
 ---
 
