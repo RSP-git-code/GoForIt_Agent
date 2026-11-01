@@ -1,4 +1,4 @@
-# Go For It, Agent 
+# Go For It, Agent
 
 *Tired of retyping the same details on every job application?*
 
@@ -10,7 +10,7 @@ The idea is simple: spend less time on repetitive applications and more time fin
 
 > **You're always in control.** GoForIt assists with form filling and job discovery, but never submits an application on your behalf. You review everything and make the final call.
 
-**Note:** GoForIt is a personal project and is not available as a hosted or deployed service. If you'd like to try it, you can clone the repository and run it locally. The current implementation uses Ollama for local LLM inference. You can also adapt the AI integration to your preferred provider, such as Claude or ChatGPT, by modifying the relevant components and configuring your own API access. External provider usage may incur costs.
+**Note:** GoForIt is a personal project and is not available as a hosted or deployed service. To try it, clone the repository and run it locally. The current implementation uses Ollama for local LLM inference. The AI integration can also be adapted to other providers, such as Claude or ChatGPT, by modifying the relevant components and configuring your own API access. External provider usage may incur costs.
 
 ---
 
@@ -35,13 +35,13 @@ Users provide their personal, academic, and professional information through the
 
 ### 2. Form Detection and Classification
 
-When the user selects **Fill this page**, the extension identifies available form fields. A fine-tuned field classifier helps determine the purpose and type of each field.
+When the user selects **Fill this page**, the extension identifies available form fields. A fine-tuned field classifier predicts the purpose of each field and helps map it to the corresponding information in the user's profile.
 
 ### 3. Agent-Based Form Filling
 
 A LangGraph pipeline coordinates the AI agents involved in processing application forms. A small LLM served through Ollama supports language-based tasks, while the field classifier assists with identifying relevant information.
 
-The system uses the user's stored profile to populate the corresponding fields.
+The system uses the user's stored profile to populate corresponding fields.
 
 ### 4. Job Alert Scanning
 
@@ -55,7 +55,7 @@ It also identifies potential skill gaps and provides links to relevant free cour
 
 ### 6. Review and Submission
 
-Filled fields receive visual indicators:
+Filled fields receive visual indicators to help users review the results:
 
 - **Green:** Information successfully filled.
 - **Yellow:** Information requires review.
@@ -71,7 +71,7 @@ Want to see GoForIt in action?
 
 The demo walks through the application's workflow, including form filling, job-alert scanning, and Agent Octo's job-fit analysis.
 
-**[Watch the GoForIt Demo](https://drive.google.com/file/d/1RGAL4Xed6XN2D8UmwhgOHOc2k5uhEQmH/view?usp=drive_link)**
+**[▶ Watch the GoForIt Demo](https://drive.google.com/file/d/1RGAL4Xed6XN2D8UmwhgOHOc2k5uhEQmH/view?usp=drive_link)**
 
 ---
 
@@ -81,40 +81,56 @@ A look at GoForIt in action.
 
 ### 1. Chrome Extension
 
-<!-- Add extension popup screenshot here -->
+The extension provides access to profile management and the application's main features.
 
-![GoForIt Extension](<img width="1904" height="987" alt="image" src="https://github.com/user-attachments/assets/890386cb-65fb-4787-b701-c86e8d1259d9" />
-)
+<img width="100%" alt="GoForIt Chrome Extension" src="https://github.com/user-attachments/assets/890386cb-65fb-4787-b701-c86e8d1259d9" />
 
 ### 2. Automated Form Filling
 
-<!-- Add form filling screenshot here -->
+GoForIt uses the saved profile to populate relevant fields on supported application forms.
 
-![Form Filling](screenshots/form-filling.png)
+<img width="100%" alt="Automated Form Filling" src="https://github.com/user-attachments/assets/3ebb3a29-5cb5-4e56-8df5-980d1fc2840f" />
 
 ### 3. Field Classification and Review
 
-<!-- Add field status screenshot here -->
+The field classifier identifies the information requested by each form field. Visual indicators help distinguish successfully filled fields from fields that need attention.
 
-![Field Classification](screenshots/field-classification.png)
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/59107343-8edd-4fb8-803b-8d05a3fdf6b4" alt="Field Classification" width="100%" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/7bd72e78-bd11-464f-96fd-55d449960acd" alt="Field Review Status" width="100%" />
+    </td>
+  </tr>
+</table>
 
 ### 4. Job Alert Scanning
 
-<!-- Add job alerts / Excel output screenshot here -->
+Daily scanning of job notifications received through LinkedIn and Indeed, organized for easier tracking.
 
-![Job Alerts](screenshots/job-alerts.png)
+<img width="100%" alt="Job Alert Scanning Output" src="https://github.com/user-attachments/assets/ace0cae6-0f65-48e5-bed2-d5806ee7c7dd" />
 
 ### 5. Job-Fit Analysis — Agent Octo
+### 5. Job-Fit Analysis — Agent Octo
 
-<!-- Add job-fit analysis screenshot here -->
+Agent Octo 🐙 evaluates job requirements against the user's profile and provides a job-fit assessment. It encourages the user to apply if the JD requirements and the profile match well (it cheers with pom-poms at a 60%+ match), points out the missing skills with free courses to learn them, and says "skip" when a hard requirement such as a Master's degree isn't met. It works in both a day and a night sea.
 
-![Agent Octo](screenshots/agent-octo.png)
+![Agent Octo's moods](docs/screenshots/octo/octo-moods-light.png)
+
+<details><summary>Night mode</summary>
+
+![Agent Octo's moods, night sea](docs/screenshots/octo/octo-moods-dark.png)
+</details>
+
+
 
 ### 6. Skill Gap Recommendations
 
-<!-- Add free course recommendation screenshot here -->
+Relevant skill gaps and free learning resources are highlighted to help users prepare for suitable opportunities.
 
-![Skill Recommendations](screenshots/skill-recommendations.png)
+<!-- Paste your Skill Gap Recommendations screenshot here -->
 
 ---
 
@@ -138,11 +154,28 @@ cd GoForIt
 
 ### 2. Backend Setup
 
-```bash
+Navigate to the backend directory:
+
+```powershell
 cd backend
+```
+
+Create and activate a virtual environment:
+
+```powershell
 py -3.11 -m venv .venv
 .venv\Scripts\activate
+```
+
+Install the required dependencies:
+
+```powershell
 pip install -r requirements.txt
+```
+
+Start the backend:
+
+```powershell
 python -m app.main
 ```
 
@@ -153,6 +186,8 @@ The backend should be available at:
 Check its status by opening:
 
 `http://127.0.0.1:8000/health`
+
+Make sure Ollama is installed, running, and configured with the model required by the project.
 
 ### 3. Configure the Chrome Extension
 
@@ -168,7 +203,7 @@ Your profile information is stored locally using `chrome.storage.local`.
 
 ### 4. Try the Demo Portal
 
-Open `demo-site/index.html` to explore the fictional Ostania Tech application portal.
+Open `demo-site/index.html` to explore the fictional **Ostania Tech** application portal.
 
 You can also import the sample profile:
 
@@ -189,13 +224,15 @@ GoForIt also includes a scheduled job-scanning workflow.
 - **Logs:** Available at `Documents\GoForIt\inbox-log.txt`.
 - **Calendar integration:** Start the backend using `start-backend.bat` for the application tracking links.
 
-The job-alert workflow uses the configured integrations and requires the relevant access and authentication.
+The job-alert workflow uses the configured integrations and requires the relevant access and authentication. The scheduled task is intended for Windows environments.
 
 ---
 
 ## Testing
 
 GoForIt includes tests for its Chrome extension, backend, and form-filling workflow.
+
+Run the following commands from the repository root:
 
 ```bash
 # Extension unit tests
@@ -214,7 +251,7 @@ pytest
 
 The project combines browser-side form interaction with local AI processing and supporting job-alert workflows.
 
-**Core components:**
+### Core Components
 
 | Component | Technology |
 |---|---|
@@ -223,9 +260,9 @@ The project combines browser-side form interaction with local AI processing and 
 | Agent orchestration | LangGraph |
 | Local LLM | Ollama |
 | Field classification | Fine-tuned ML classifier |
-| Job alert workflow | Python, Excel, Google Calendar integration |
+| Job-alert workflow | Python, Excel, Google Calendar integration |
 
-For additional implementation details, refer to the project documentation.
+For additional implementation details, refer to the project documentation:
 
 - [Safety Rules](docs/RULES.md)
 - [Project Metrics](docs/METRICS.md)
@@ -239,7 +276,7 @@ GoForIt is an ongoing personal project. Some components are still being refined.
 Areas of continued development include:
 
 - Improving field classification accuracy across different application platforms.
-- Fine-tuning the field classification model.
+- Further fine-tuning the field classification model.
 - Improving job-fit assessment and skill-gap identification.
 - Expanding support for different application form structures.
 - Exploring additional LLM integrations.
@@ -263,15 +300,7 @@ Users are responsible for reviewing the information and deciding what to submit.
 ## Credits & Disclaimer
 
 - **Character:** Anya Forger from *SPY×FAMILY*, created by Tatsuya Endo.
-- **Artwork inspiration:** [Pinterest reference](https://www.pinterest.com/pin/614037730490952505/). The illustration used in the demo resume was hand-drawn by the project author, inspired by this reference.
+- **Artwork inspiration:** [Pinterest reference](https://www.pinterest.com/pin/614037730490952505/). The illustration used in the demo resume was hand-drawn by me, inspired by this reference.
 - **Demo data:** The resume uses fictional personal, academic, and professional details created solely for demonstration and testing.
 
-All rights to *SPY×FAMILY*, its characters, and associated original artwork belong to their respective copyright holders. GoForIt is an independent personal project and is not affiliated with, endorsed by, or sponsored by the creators or rights holders of *SPY×FAMILY*.
-
----
-
-## License
-
-The GoForIt source code is licensed under the [MIT License](LICENSE).
-
-Third-party assets, characters, trademarks, and other materials remain subject to their respective owners' rights and are not included in the software license.
+*SPY×FAMILY*, its characters, names, and associated intellectual property belong to their respective rights holders. GoForIt is an independent personal project and is not affiliated with, endorsed by, or sponsored by Tatsuya Endo or the rights holders.
